@@ -81,24 +81,6 @@
     <Compile Include="GXPEngine\FMOD\FMODSoundSystem.cs" />
     <Compile Include="GXPEngine\SoLoud\Soloud.cs" />
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Background.cs" />
-    <Compile Include="Level.cs" />
-    <Compile Include="Acid.cs" />
-    <Compile Include="Collectible.cs" />
-    <Compile Include="HUD.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="Button.cs" />
-    <Compile Include="Enemy.cs" />
-    <Compile Include="Waypoint.cs" />
-    <Compile Include="Wall.cs" />
-    <Compile Include="Bullet.cs" />
-    <Compile Include="Ground.cs" />
-    <Compile Include="Character.cs" />
-    <Compile Include="Level2.cs" />
-    <Compile Include="jungleWall.cs" />
-    <Compile Include="jungleBackground.cs" />
-    <Compile Include="jungleGround.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

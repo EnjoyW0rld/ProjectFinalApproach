@@ -10,7 +10,7 @@ namespace GXPEngine
 	public abstract class GameObject : Transformable
 	{
 		public string name;
-		public Collider _collider;
+		private Collider _collider;
 		
 		private List<GameObject> _children = new List<GameObject>();
 		private GameObject _parent = null;

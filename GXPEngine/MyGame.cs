@@ -1,48 +1,34 @@
 using System;									// System contains a lot of default C# libraries 
 using GXPEngine;                                // GXPEngine contains the engine
-using System.Drawing;                         // System.Drawing contains drawing tools such as Color definitions
+using System.Drawing;							// System.Drawing contains drawing tools such as Color definitions
 
 public class MyGame : Game
 {
-
-	private Level _level;
-
-	public MyGame() : base(800, 600, false)     // Create a window that's 800x600 and NOT fullscreen
+	public MyGame() : base(800, 600, false)		// Create a window that's 800x600 and NOT fullscreen
 	{
-		/*EasyDraw canvas = new EasyDraw(800, 600);
+		// Draw some things on a canvas:
+		EasyDraw canvas = new EasyDraw(800, 600);
+		canvas.Clear(Color.MediumPurple);
+		canvas.Fill(Color.Yellow);
+		canvas.Ellipse(width / 2, height / 2, 200, 200);
+		canvas.Fill(50);
+		canvas.TextSize(32);
+		canvas.TextAlign(CenterMode.Center, CenterMode.Center);
+		canvas.Text("Welcome!", width / 2, height / 2);
 
-
-		Sprite sprite = new Sprite("tutorial.png");
-		sprite.SetXY(width / 2, height / 2);
-		canvas.DrawSprite(sprite);
+		// Add the canvas to the engine to display it:
 		AddChild(canvas);
-		AddChild(sprite);*/
-		
-		Menu menu = new Menu();
-		AddChild(menu);
-
+		Console.WriteLine("MyGame initialized");
 	}
 
-
+	// For every game object, Update is called every frame, by the engine:
 	void Update()
 	{
-		if(Input.GetKeyDown(Key.R))
-        {
-			//ResetLevel();
-        }
+		// Empty
 	}
 
 	static void Main()							// Main() is the first method that's called when the program is run
 	{
-		new MyGame().Start();                   // Create a "MyGame" and start i
+		new MyGame().Start();					// Create a "MyGame" and start it
 	}
-	void ResetLevel()
-    {
-
-		_level.Remove();
-		_level = null;
-        
-		//_level = new Level();
-		//LateAddChild(_level);
-    }
 }
