@@ -4,9 +4,13 @@ using System.Drawing;							// System.Drawing contains drawing tools such as Col
 
 public class MyGame : Game
 {
-	public MyGame() : base(800, 600, false)		// Create a window that's 800x600 and NOT fullscreen
+
+	Player player;
+	public MyGame() : base(800, 600, false,false)		// Create a window that's 800x600 and NOT fullscreen
 	{
-		
+		targetFps = 60;
+		AddChild(player = new Player());
+		AddChild(new Planet(new Vec2(400,500),300));
 	}
 
 	// For every game object, Update is called every frame, by the engine:
@@ -19,4 +23,8 @@ public class MyGame : Game
 	{
 		new MyGame().Start();					// Create a "MyGame" and start it
 	}
+	public Player GetPlayer()
+    {
+		return player;
+    }
 }
