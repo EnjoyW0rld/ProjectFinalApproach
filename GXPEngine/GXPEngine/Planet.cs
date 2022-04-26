@@ -8,14 +8,15 @@ namespace GXPEngine
 {
     internal class Planet : Sprite
     {
-        Vec2 pos;
+        public Vec2 pos { get; private set; }
         float gravityRadius;
-        float gravityPower;
+        public float circumference { get { return 2 * Mathf.PI * gravityRadius; } }
+        //float gravityPower;
         float mass = 10000f * 1000f;
         public Planet(Vec2 ppos, float rad) : base("triangle.png")
         {
             SetOrigin(width/2, height/2);
-            gravityPower = 10f;
+            //gravityPower = 10f;
             pos = ppos;
             SetXY(pos.x, pos.y);
             gravityRadius = rad;
@@ -24,12 +25,25 @@ namespace GXPEngine
         void Update()
         {
             
-            MyGame myGame = (MyGame)game;
-            Player player = myGame.GetPlayer();
+            //MyGame myGame = (MyGame)game;
+            Scene par = (Scene)parent;
+            Player player = par.GetPlayer();
             float distanceToPlanet = player.pos.DistanceTo(pos);
             if(distanceToPlanet <= gravityRadius)
             {
                 DragShip(player,distanceToPlanet);
+            }
+
+
+            foreach(var satelite in par.GetSatelites())
+            {
+                float distanceTo = satelite.pos.DistanceTo(pos);
+                if(distanceTo <= gravityRadius)
+                {
+                    float force = GravityForce(satelite.Mass(), mass, distanceTo);
+                    Console.WriteLine(force + " speed towards the planet");
+                    satelite.ApplyThrust((pos - satelite.pos) * force);
+                }
             }
         }
 
@@ -41,8 +55,10 @@ namespace GXPEngine
             Console.WriteLine(realGravityPower);
             player.AddVelocity(direction * realGravityPower);
             */
+
+            //float force = 6.672f * Mathf.Pow(10,-7) * ((player.Mass() * mass) / Mathf.Pow(distance, 2));
             Vec2 direction = (pos - player.pos).Normalized();
-            float force = 6.672f * Mathf.Pow(10,-7) * ((player.Mass() * mass) / Mathf.Pow(distance, 2));
+            float force = GravityForce(player.Mass(),mass,distance);
             Console.WriteLine(force);
             player.AddVelocity(direction * force);
 
@@ -57,5 +73,12 @@ namespace GXPEngine
             oreol.alpha = 0.2f;
             AddChild(oreol);
         }
+
+        public static float GravityForce(float m1, float m2, float distance)
+        {
+            return 6.672f * Mathf.Pow(10,-7) * (m1 * m2) / Mathf.Pow(distance, 2);
+        }
+        public float Mass() => mass;
+        public float GetGravityRadius() => gravityRadius;
     }
 }

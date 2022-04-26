@@ -24,13 +24,15 @@ namespace GXPEngine
             thruster = new Thruster();
             AddChild(thruster);
         }
+        public Vec2 oldPos;
         void Update()
         {
-            Gizmos.DrawArrow(pos.x, pos.y, Vec2.GetUnitVectorDeg(thruster.rotation).x * 10, Vec2.GetUnitVectorDeg(thruster.rotation).y * 10);
+            oldPos = pos;
             HandleControls();
             pos += velocity;
             //velocity *= 0.9f;
             UpdatePosition();
+            
         }
         void UpdatePosition()
         {
