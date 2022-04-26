@@ -6,11 +6,11 @@ public class MyGame : Game
 {
 
 	Player player;
-	public MyGame() : base(800, 600, false,false)		// Create a window that's 800x600 and NOT fullscreen
+	public MyGame() : base(1920, 1080, false,false)		// Create a window that's 800x600 and NOT fullscreen
 	{
 		targetFps = 60;
 		AddChild(player = new Player());
-		AddChild(new Planet(new Vec2(400,500),300));
+		AddChild(new Planet(new Vec2(400,450),200));
 	}
 
 	// For every game object, Update is called every frame, by the engine:
