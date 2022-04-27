@@ -8,7 +8,7 @@ namespace GXPEngine
 {
     public class BallCollider : GameObject
     {
-        public readonly Vec2 pos;
+        public Vec2 pos;
         public readonly float radius;
         public BallCollider(Vec2 p, float r)
         {
@@ -17,6 +17,12 @@ namespace GXPEngine
             //x = p.x;
             //y = p.y;
 
+        }
+        void Update()
+        {
+            GameObject obj = (GameObject)parent;
+            pos.x = obj.x;
+            pos.y = obj.y;
         }
 
     }

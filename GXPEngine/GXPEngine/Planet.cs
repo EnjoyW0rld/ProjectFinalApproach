@@ -51,7 +51,7 @@ namespace GXPEngine
             }
             if(distanceToPlanet == ballCollider.radius + player.ballCollider.radius)
             {
-                player.AddVelocity(player.velocity * -1);
+                //player.AddVelocity(player.velocity * -1);
             }
 
             //Check if sattelites are in the gravity area

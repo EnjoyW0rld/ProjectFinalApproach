@@ -10,7 +10,8 @@ namespace GXPEngine
     {
         public Vec2 pos { get; private set; }
         Vec2 oldPos;
-        public Vec2 velocity { get; private set; }
+        //public Vec2 velocity { get; private set; }
+        Vec2 velocity;
         Vec2 acceleration;
         const float SPEED = 0.5f;
         const float mass = 1000f; 
@@ -27,6 +28,7 @@ namespace GXPEngine
             thruster = new Thruster();
             AddChild(thruster);
             ballCollider = new BallCollider(pos, body.width / 2);
+            AddChild(ballCollider);
         }
         void Update()
         {
@@ -34,13 +36,13 @@ namespace GXPEngine
             HandleControls();
             pos += velocity;
             //velocity *= 0.9f;
+            UpdatePosition();
             CollisionInfo colInfo = FindEarliestCollsion();
             if(colInfo != null)
             {
                 ResolveCollision(colInfo);
             }
-            UpdatePosition();
-            Console.WriteLine(velocity);
+            Console.WriteLine(ballCollider.pos);
         }
         void UpdatePosition()
         {
@@ -79,13 +81,14 @@ namespace GXPEngine
             foreach(BallCollider otherCollider in colliders)
             {
                     float TOI = CollisionTOI(otherCollider);
-                    if (earliestTOI > TOI)
-                    {
-                        coll = new CollisionInfo(otherCollider.pos - ballCollider.pos, TOI,otherCollider.radius);
-                        earliestTOI = TOI;
-                    }
                 if(pos.DistanceTo(otherCollider.pos) <= ballCollider.radius + otherCollider.radius)
                 {
+                    if (earliestTOI > TOI)
+                    {
+                        //coll = new CollisionInfo(otherCollider.pos - ballCollider.pos, TOI,otherCollider.radius);
+                        coll = new CollisionInfo(ballCollider.pos - otherCollider.pos, TOI,otherCollider.radius);
+                        earliestTOI = TOI;
+                    }
                 }
             }
 
@@ -114,9 +117,12 @@ namespace GXPEngine
         }
         void ResolveCollision(CollisionInfo colInfo)
         {
-            pos = oldPos + velocity * colInfo.TOI;
+            //pos = oldPos + velocity * colInfo.TOI;
             //pos += colInfo.normal.Normalized() * (colInfo.normal.Length() - colInfo.radius - ballCollider.radius);
-            velocity.Reflect(colInfo.normal.Normalized(),0.4f);
+            //pos += colInfo.normal.Normalized() * (colInfo.normal.Length() - colInfo.radius - ballCollider.radius);
+            velocity.Reflect(colInfo.normal.Normalized(),1f);
+            //velocity.Reflect()
+            //velocity.Reflect(new Vec2(-1, 0));
         }
     }
 }
