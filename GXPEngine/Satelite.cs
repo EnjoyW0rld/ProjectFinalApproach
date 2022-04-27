@@ -25,7 +25,6 @@ namespace GXPEngine
             //float force = Planet.GravityForce(mass,p.Mass(),p.pos.DistanceTo(pos));
             //velocity = Vec2.GetUnitVectorDeg(0) * force;
             //velocity = direction * (Mathf.Sqrt((6.672f * Mathf.Pow(10, -7) * p.Mass())/ (pos.DistanceTo(p.pos)) ));
-            Console.WriteLine(velocity);
             velocity = direction * 3.5f;
             
         }

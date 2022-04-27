@@ -15,5 +15,6 @@ namespace GXPEngine
         }
         virtual public Player GetPlayer() => null;
         virtual public Satelite[] GetSatelites() => null;
+        virtual public BallCollider[] GetBallColliders() => null;
     }
 }

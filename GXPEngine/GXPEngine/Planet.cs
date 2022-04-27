@@ -6,60 +6,77 @@ using System.Threading.Tasks;
 
 namespace GXPEngine
 {
-    internal class Planet : Sprite
+    internal class Planet : GameObject
     {
         public Vec2 pos { get; private set; }
         float gravityRadius;
         public float circumference { get { return 2 * Mathf.PI * gravityRadius; } }
         //float gravityPower;
         float mass = 10000f * 1000f;
-        public Planet(Vec2 ppos, float rad) : base("triangle.png")
+        public BallCollider ballCollider { get; private set; }
+        Sprite body;
+
+        public Planet(Vec2 ppos, float rad)
         {
-            SetOrigin(width/2, height/2);
-            //gravityPower = 10f;
+            //alpha = 0.1f;
+            //SetOrigin(width/2, height/2);
             pos = ppos;
-            SetXY(pos.x, pos.y);
             gravityRadius = rad;
+            //height = 200;
+            //width = 200;
+            //gravityPower = 10f;
+            SetXY(pos.x, pos.y);
+            body = new Sprite("circle.png", false);
+            body.SetOrigin(body.width/2,body.height/2);
+            body.height = 200;
+            body.width = 200;
+            AddChild(body);
             CreateOreol();
+            ballCollider = new BallCollider(ppos, 100);
         }
         void Update()
         {
             
+            Gizmos.DrawCross(pos.x, pos.y, 100);
             //MyGame myGame = (MyGame)game;
             Scene par = (Scene)parent;
             Player player = par.GetPlayer();
             float distanceToPlanet = player.pos.DistanceTo(pos);
-            if(distanceToPlanet <= gravityRadius)
+
+            //Check if ship is in gravity affected area
+            if(distanceToPlanet <= gravityRadius && distanceToPlanet > ballCollider.radius + player.ballCollider.radius)
             {
                 DragShip(player,distanceToPlanet);
+                
+            }
+            if(distanceToPlanet == ballCollider.radius + player.ballCollider.radius)
+            {
+                player.AddVelocity(player.velocity * -1);
             }
 
-
+            //Check if sattelites are in the gravity area
             foreach(var satelite in par.GetSatelites())
             {
                 float distanceTo = satelite.pos.DistanceTo(pos);
                 if(distanceTo <= gravityRadius)
                 {
                     float force = GravityForce(satelite.Mass(), mass, distanceTo);
-                    Console.WriteLine(force + " speed towards the planet");
                     satelite.ApplyThrust((pos - satelite.pos) * force);
                 }
             }
         }
 
+
+        /// <summary>
+        /// Method to apply gravity to the player ship
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="distance"></param>
         void DragShip(Player player, float distance)
         {
-            /*
-            Vec2 direction = (pos - player.pos).Normalized();
-            float realGravityPower = gravityPower - ((distance  / gravityRadius) * gravityPower);
-            Console.WriteLine(realGravityPower);
-            player.AddVelocity(direction * realGravityPower);
-            */
-
-            //float force = 6.672f * Mathf.Pow(10,-7) * ((player.Mass() * mass) / Mathf.Pow(distance, 2));
+            
             Vec2 direction = (pos - player.pos).Normalized();
             float force = GravityForce(player.Mass(),mass,distance);
-            Console.WriteLine(force);
             player.AddVelocity(direction * force);
 
         }

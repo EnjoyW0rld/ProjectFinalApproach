@@ -9,12 +9,15 @@ namespace GXPEngine
     public class Player : GameObject
     {
         public Vec2 pos { get; private set; }
-        Vec2 velocity;
+        Vec2 oldPos;
+        public Vec2 velocity { get; private set; }
         Vec2 acceleration;
         const float SPEED = 0.5f;
         const float mass = 1000f; 
         Sprite body;
         Thruster thruster;
+        public readonly BallCollider ballCollider;
+
         public Player()
         {
             pos = new Vec2(200,200);
@@ -23,16 +26,21 @@ namespace GXPEngine
             AddChild(body);
             thruster = new Thruster();
             AddChild(thruster);
+            ballCollider = new BallCollider(pos, body.width / 2);
         }
-        public Vec2 oldPos;
         void Update()
         {
             oldPos = pos;
             HandleControls();
             pos += velocity;
             //velocity *= 0.9f;
+            CollisionInfo colInfo = FindEarliestCollsion();
+            if(colInfo != null)
+            {
+                ResolveCollision(colInfo);
+            }
             UpdatePosition();
-            
+            Console.WriteLine(velocity);
         }
         void UpdatePosition()
         {
@@ -52,7 +60,7 @@ namespace GXPEngine
             if(Input.GetKey(Key.W)) acceleration = Vec2.GetUnitVectorDeg(thruster.rotation - 90);
 
             velocity += acceleration.Normalized() * SPEED;
-
+             
             if (Input.GetKey(Key.G)) rotation++;
         }
         public void AddVelocity(Vec2 vel)
@@ -60,5 +68,55 @@ namespace GXPEngine
             velocity += vel;
         }
         public float Mass() => mass;
+
+        CollisionInfo FindEarliestCollsion()
+        {
+            Scene sc = (Scene)parent;
+            BallCollider[] colliders = sc.GetBallColliders();
+            CollisionInfo coll = null;
+            float earliestTOI = 10;
+
+            foreach(BallCollider otherCollider in colliders)
+            {
+                    float TOI = CollisionTOI(otherCollider);
+                    if (earliestTOI > TOI)
+                    {
+                        coll = new CollisionInfo(otherCollider.pos - ballCollider.pos, TOI,otherCollider.radius);
+                        earliestTOI = TOI;
+                    }
+                if(pos.DistanceTo(otherCollider.pos) <= ballCollider.radius + otherCollider.radius)
+                {
+                }
+            }
+
+            return coll;
+        }
+        float CollisionTOI(BallCollider othColl)
+        {
+            Vec2 u = oldPos - othColl.pos;
+            float a = Mathf.Pow(velocity.Length(), 2);
+            float b = u.Dot(velocity) * 2;
+            float c = Mathf.Pow(u.Length(), 2) - Mathf.Pow(othColl.radius + ballCollider.radius, 2);
+            float D = Mathf.Pow(b, 2) - (4 * a * c);
+            if(c < 0)
+            {
+                if (b < 0) return 0;
+                else return 10;
+            }
+            if (a < 0.01f) return 10;
+            if(D > 0)
+            {
+                float TOI = (-b - Mathf.Sqrt(D)) / (2 * a);
+                
+                if(TOI < 1 && TOI >= 0) return TOI;
+            }
+            return 10;
+        }
+        void ResolveCollision(CollisionInfo colInfo)
+        {
+            pos = oldPos + velocity * colInfo.TOI;
+            //pos += colInfo.normal.Normalized() * (colInfo.normal.Length() - colInfo.radius - ballCollider.radius);
+            velocity.Reflect(colInfo.normal.Normalized(),0.4f);
+        }
     }
 }

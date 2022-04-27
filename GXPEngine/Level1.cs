@@ -11,6 +11,7 @@ namespace GXPEngine
         Player player;
         List<Satelite> satelites = new List<Satelite>();
         List<Planet> planets = new List<Planet>();
+        BallCollider[] colliders;
         public Level1()
         {
             planets.Add(new Planet(new Vec2(400, 450), 200));
@@ -28,6 +29,18 @@ namespace GXPEngine
         public override Satelite[] GetSatelites()
         {
             return satelites.ToArray();
+        }
+        public override BallCollider[] GetBallColliders()
+        {
+            if(colliders == null)
+            {
+                colliders = new BallCollider[planets.Count];
+                for (int i = 0; i < planets.Count; i++)
+                {
+                    colliders[i] = planets[i].ballCollider;
+                }
+            }
+            return colliders;
         }
 
     }
