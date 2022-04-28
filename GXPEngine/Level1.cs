@@ -10,13 +10,15 @@ namespace GXPEngine
     {
         Player player;
         List<Satelite> satelites = new List<Satelite>();
-        List<Planet> planets = new List<Planet>();
+        List<SpaceBody> planets = new List<SpaceBody>();
         BallCollider[] colliders;
         MyCamera cam;
         public Level1()
         {
-            planets.Add(new Planet(new Vec2(400, 450), 200));
-            planets.Add(new Planet(new Vec2(1200, 450), 500));
+            planets.Add(new Planet(new Vec2(400, 450), 300,100,10000, "Assets/planet_green.png"));
+            planets.Add(new Planet(new Vec2(1200, 450), 500,300,10000, "Assets/planet_purple.png"));
+            //planets.Add(new Portal(new Vec2(1600, 450), 400,1,40));
+            //planets.Add(new Portal(new Vec2(2400, 450), 300,1,80));
 
             AddChild(player = new Player());
             cam = new MyCamera(player);
@@ -42,7 +44,7 @@ namespace GXPEngine
                 colliders = new BallCollider[planets.Count];
                 for (int i = 0; i < planets.Count; i++)
                 {
-                    colliders[i] = planets[i].ballCollider;
+                    colliders[i] = planets[i].GetCollider();
                 }
             }
             return colliders;

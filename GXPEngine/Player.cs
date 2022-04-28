@@ -86,7 +86,7 @@ namespace GXPEngine
                     if (earliestTOI > TOI)
                     {
                         //coll = new CollisionInfo(otherCollider.pos - ballCollider.pos, TOI,otherCollider.radius);
-                        coll = new CollisionInfo(ballCollider.pos - otherCollider.pos, TOI,otherCollider.radius);
+                        coll = new CollisionInfo(ballCollider.pos - otherCollider.pos, TOI, otherCollider);
                         earliestTOI = TOI;
                     }
                 }
@@ -117,8 +117,23 @@ namespace GXPEngine
         }
         void ResolveCollision(CollisionInfo colInfo)
         {
+            if(colInfo.collisionObject != null)
+            {
+                var ColParent = colInfo.collisionObject.GetParent();
+                if (ColParent is Portal)
+                {
+                    Portal portal = (Portal)ColParent;
+                    TeleportUsingPortal(portal);
+                    return;
+                }
+            }
             //pos = oldPos + velocity * colInfo.TOI;
             velocity.Reflect(colInfo.normal.Normalized(),0.8f);
+        }
+        void TeleportUsingPortal(Portal port)
+        {
+            Vec2 propDirection = Vec2.GetUnitVectorDeg(port.facingDirection);
+            velocity = propDirection * velocity.Length();
         }
     }
 }

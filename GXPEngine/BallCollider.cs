@@ -22,6 +22,19 @@ namespace GXPEngine
             pos.x = obj.x;
             pos.y = obj.y;
         }
+        public GameObject GetParent()
+        {
+            try
+            {
+                return this.parent as GameObject;
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e);
+            }
+            return null;
+        }
 
     }
 }

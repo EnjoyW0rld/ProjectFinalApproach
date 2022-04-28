@@ -87,8 +87,10 @@
     <Compile Include="GXPEngine\SoLoud\Soloud.cs" />
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Portal.cs" />
     <Compile Include="Satelite.cs" />
     <Compile Include="Scene.cs" />
+    <Compile Include="SpaceBody.cs" />
     <Compile Include="Thruster.cs" />
     <Compile Include="Vec2.cs" />
   </ItemGroup>

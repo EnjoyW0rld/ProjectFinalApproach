@@ -6,30 +6,17 @@ using System.Threading.Tasks;
 
 namespace GXPEngine
 {
-    internal class Planet : GameObject
+    internal class Planet : SpaceBody
     {
-        public Vec2 pos { get; private set; }
-        float gravityRadius;
-        public float circumference { get { return 2 * Mathf.PI * gravityRadius; } }
-        //float gravityPower;
-        float mass = 10000f * 1000f;
-        public BallCollider ballCollider { get; private set; }
-        Sprite body;
+        public new Vec2 pos { get; private set; }
+        public new BallCollider ballCollider { get; private set; }
 
-        public Planet(Vec2 ppos, float rad)
+        public Planet(Vec2 ppos, float gRad, int planetR,
+            float m, string path, string oreolPath = "circle.png") : base(ppos, gRad, planetR, m, path)
         {
             pos = ppos;
-            gravityRadius = rad;
-            
-            SetXY(pos.x, pos.y);
-            body = new Sprite("circle.png", false);
-            body.SetOrigin(body.width/2,body.height/2);
-            body.height = 200;
-            body.width = 200;
-
-            AddChild(body);
-            CreateOreol();
-            ballCollider = new BallCollider(ppos, 100);
+            AddChild(ballCollider = new BallCollider(ppos, planetR));
+            CreateOreol(oreolPath);
         }
         void Update()
         {
@@ -89,6 +76,10 @@ namespace GXPEngine
             return 6.672f * Mathf.Pow(10,-7) * (m1 * m2) / Mathf.Pow(distance, 2);
         }
         public float Mass() => mass;
-        public float GetGravityRadius() => gravityRadius;
+        //public float GetGravityRadius() => gravityRadius;
+        public override BallCollider GetCollider()
+        {
+            return ballCollider;
+        }
     }
 }
