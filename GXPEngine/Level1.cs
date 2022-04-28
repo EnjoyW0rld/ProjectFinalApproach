@@ -16,7 +16,10 @@ namespace GXPEngine
 
         public Level1()
         {
-            planets.Add(new Planet(new Vec2(100,100), 500, 100, 10000, "Assets/planet_green.png"));
+            planets.Add(new Planet(new Vec2(656,441), 300, 100, 5000, "Assets/planet_purple_cel.png"));
+            planets.Add(new Planet(new Vec2(958,740), 300, 100, 5000, "Assets/planet_green.png"));
+            planets.Add(new Planet(new Vec2(1115,337), 300, 100, 5000, "Assets/planet_green.png"));
+            planets.Add(new Planet(new Vec2(1413,241), 300, 100, 5000, "Assets/planet_green.png"));
             //planets.Add(new Planet(new Vec2(400, 450), 300,100,10000, "Assets/planet_green.png"));
             //planets.Add(new Planet(new Vec2(1200, 450), 500,300,10000, "Assets/planet_purple.png"));
             //planets.Add(new Portal(new Vec2(1600, 450), 400,1,90,200,1000,"circle.png"));
@@ -27,7 +30,7 @@ namespace GXPEngine
             AddChild(cam);
 
             foreach (var planet in planets) AddChild(planet);
-            //satelites.Add(new Satelite(planets[0]));
+            satelites.Add(new Satelite(planets[0]));
             //satelites.Add(new Satelite(planets[1]));
             foreach(var sat in satelites)AddChild(sat);
         }

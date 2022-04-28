@@ -10,9 +10,17 @@ namespace GXPEngine
     {
         public Vec2 pos;
         public readonly float radius;
+
+        Sprite debugC;
         public BallCollider(Vec2 p, float r)
         {
-             pos = p;
+            debugC = new Sprite("circle.png");
+            debugC.SetOrigin(debugC.width/2,debugC.height/2);
+            debugC.height = (int)(r * 2);
+            debugC.width = (int)(r * 2);
+            debugC.alpha = 0.5f;
+            //AddChild(debugC);
+            pos = p;
             radius = r;
 
         }

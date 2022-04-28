@@ -19,20 +19,21 @@ namespace GXPEngine
         Thruster thruster;
         public readonly BallCollider ballCollider;
 
-
         public Player()
         {
             pos = new Vec2(200,200);
-            body = new Sprite("circle.png");
+            body = new Sprite("Assets/mockup1.png");
             body.SetOrigin(body.width/2,body.height/2);
+            body.scale = 0.2f;
             AddChild(body);
             thruster = new Thruster();
-            AddChild(thruster);
-            ballCollider = new BallCollider(pos, body.width / 2);
+            //AddChild(thruster);
+            ballCollider = new BallCollider(pos, body.width / 2 - 20);
             AddChild(ballCollider);
         }
         void Update()
         {
+            
             oldPos = pos;
             HandleControls();
             pos += velocity;
@@ -58,12 +59,10 @@ namespace GXPEngine
             if(Input.GetKey(Key.R)) pos = new Vec2(100,100);
             if(Input.GetKey(Key.T)) velocity = new Vec2();
             acceleration = new Vec2();
-            //if (Input.GetKey(Key.A)) acceleration.x = -1;
-            //if (Input.GetKey(Key.D)) acceleration.x = 1;
-            //if (Input.GetKey(Key.W)) acceleration.y = -1;
-            //if(Input.GetKey(Key.S)) acceleration.y = 1;
-            if(Input.GetKey(Key.S)) acceleration = Vec2.GetUnitVectorDeg(thruster.rotation + 90);
-            if(Input.GetKey(Key.W)) acceleration = Vec2.GetUnitVectorDeg(thruster.rotation - 90);
+            if (Input.GetKey(Key.A)) rotation += 2;
+            if(Input.GetKey(Key.D)) rotation -= 2;
+            if(Input.GetKey(Key.S)) acceleration = Vec2.GetUnitVectorDeg(rotation);
+            if(Input.GetKey(Key.W)) acceleration = Vec2.GetUnitVectorDeg(rotation);
 
             velocity += acceleration.Normalized() * SPEED;
              
