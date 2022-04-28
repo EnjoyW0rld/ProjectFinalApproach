@@ -12,11 +12,16 @@ namespace GXPEngine
         List<Satelite> satelites = new List<Satelite>();
         List<Planet> planets = new List<Planet>();
         BallCollider[] colliders;
+        MyCamera cam;
         public Level1()
         {
             planets.Add(new Planet(new Vec2(400, 450), 200));
             planets.Add(new Planet(new Vec2(1200, 450), 500));
+
             AddChild(player = new Player());
+            cam = new MyCamera(player);
+            AddChild(cam);
+
             foreach (var planet in planets) AddChild(planet);
             satelites.Add(new Satelite(planets[0]));
             //satelites.Add(new Satelite(planets[1]));

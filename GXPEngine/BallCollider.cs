@@ -14,8 +14,6 @@ namespace GXPEngine
         {
              pos = p;
             radius = r;
-            //x = p.x;
-            //y = p.y;
 
         }
         void Update()

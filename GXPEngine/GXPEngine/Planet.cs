@@ -18,18 +18,15 @@ namespace GXPEngine
 
         public Planet(Vec2 ppos, float rad)
         {
-            //alpha = 0.1f;
-            //SetOrigin(width/2, height/2);
             pos = ppos;
             gravityRadius = rad;
-            //height = 200;
-            //width = 200;
-            //gravityPower = 10f;
+            
             SetXY(pos.x, pos.y);
             body = new Sprite("circle.png", false);
             body.SetOrigin(body.width/2,body.height/2);
             body.height = 200;
             body.width = 200;
+
             AddChild(body);
             CreateOreol();
             ballCollider = new BallCollider(ppos, 100);
@@ -37,7 +34,6 @@ namespace GXPEngine
         void Update()
         {
             
-            Gizmos.DrawCross(pos.x, pos.y, 100);
             //MyGame myGame = (MyGame)game;
             Scene par = (Scene)parent;
             Player player = par.GetPlayer();
@@ -49,10 +45,7 @@ namespace GXPEngine
                 DragShip(player,distanceToPlanet);
                 
             }
-            if(distanceToPlanet == ballCollider.radius + player.ballCollider.radius)
-            {
-                //player.AddVelocity(player.velocity * -1);
-            }
+            
 
             //Check if sattelites are in the gravity area
             foreach(var satelite in par.GetSatelites())

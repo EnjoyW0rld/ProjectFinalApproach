@@ -19,6 +19,7 @@ namespace GXPEngine
         Thruster thruster;
         public readonly BallCollider ballCollider;
 
+
         public Player()
         {
             pos = new Vec2(200,200);
@@ -42,7 +43,6 @@ namespace GXPEngine
             {
                 ResolveCollision(colInfo);
             }
-            Console.WriteLine(ballCollider.pos);
         }
         void UpdatePosition()
         {
@@ -118,11 +118,7 @@ namespace GXPEngine
         void ResolveCollision(CollisionInfo colInfo)
         {
             //pos = oldPos + velocity * colInfo.TOI;
-            //pos += colInfo.normal.Normalized() * (colInfo.normal.Length() - colInfo.radius - ballCollider.radius);
-            //pos += colInfo.normal.Normalized() * (colInfo.normal.Length() - colInfo.radius - ballCollider.radius);
-            velocity.Reflect(colInfo.normal.Normalized(),1f);
-            //velocity.Reflect()
-            //velocity.Reflect(new Vec2(-1, 0));
+            velocity.Reflect(colInfo.normal.Normalized(),0.8f);
         }
     }
 }
