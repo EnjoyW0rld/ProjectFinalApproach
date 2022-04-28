@@ -12,7 +12,7 @@ namespace GXPEngine
         public new BallCollider ballCollider { get; private set; }
 
         public Planet(Vec2 ppos, float gRad, int planetR,
-            float m, string path, string oreolPath = "circle.png") : base(ppos, gRad, planetR, m, path)
+            float m, string path, string oreolPath = "Assets/blueSphere.png") : base(ppos, gRad, planetR, m, path)
         {
             pos = ppos;
             ballCollider = new BallCollider(ppos, planetR);
@@ -48,19 +48,7 @@ namespace GXPEngine
         }
 
 
-        /// <summary>
-        /// Method to apply gravity to the player ship
-        /// </summary>
-        /// <param name="player"></param>
-        /// <param name="distance"></param>
-        /*void DragShip(Player player, float distance)
-        {
-            
-            Vec2 direction = (pos - player.pos).Normalized();
-            float force = GravityForce(player.Mass(),mass,distance);
-            player.AddVelocity(direction * force);
-
-        }*/
+        
 
         void CreateOreol()
         {
@@ -72,10 +60,7 @@ namespace GXPEngine
             AddChild(oreol);
         }
 
-        /*public static float GravityForce(float m1, float m2, float distance)
-        {
-            return 6.672f * Mathf.Pow(10,-7) * (m1 * m2) / Mathf.Pow(distance, 2);
-        }*/
+        
         public float Mass() => mass;
         //public float GetGravityRadius() => gravityRadius;
         public override BallCollider GetCollider()

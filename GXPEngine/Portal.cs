@@ -23,7 +23,7 @@ namespace GXPEngine
             float rotate,int planetR,int m,string path) : base(ppos,gRad,planetR,m,path)
         {
             pos = ppos;
-            CreateOreol("circle.png");
+            CreateOreol("Assets/violetSphere.png");
             ballCollider = new BallCollider(ppos, planetR);
             AddChild(ballCollider);
             gateNumber = gate;

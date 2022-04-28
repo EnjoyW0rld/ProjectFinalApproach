@@ -43,6 +43,10 @@ namespace GXPEngine
             {
                 ResolveCollision(colInfo);
             }
+            if(velocity.Length() > 5)
+            {
+                velocity = velocity.Normalized() * 5;
+            }
         }
         void UpdatePosition()
         {

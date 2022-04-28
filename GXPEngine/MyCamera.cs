@@ -18,7 +18,9 @@ namespace GXPEngine
         void Update()
         {
             desiredX = toFollow.x;
-            x = desiredX * 0.15f + x *0.8f;
+            x = desiredX * 0.15f + x *0.85f;
+            x = Mathf.Clamp(x, 860,x);
+            if (Input.GetMouseButtonDown(0)) Console.WriteLine($"X:{Input.mouseX} Y:{Input.mouseY}");
         }
     }
 }
