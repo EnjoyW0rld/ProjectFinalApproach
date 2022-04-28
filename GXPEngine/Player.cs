@@ -134,6 +134,19 @@ namespace GXPEngine
         {
             Vec2 propDirection = Vec2.GetUnitVectorDeg(port.facingDirection);
             velocity = propDirection * velocity.Length();
+            Scene sc = (Scene)parent;
+            SpaceBody[] bodies = sc.GetSpaceBodies();
+            foreach(SpaceBody b in bodies)
+            {
+                if(b is Portal && b != port)
+                {
+                    Portal othP = (Portal)b;
+                    if(othP.gateNumber == port.gateNumber)
+                    {
+                        pos = othP.pos + propDirection * (othP.ballCollider.radius + ballCollider.radius);
+                    }
+                }
+            }
         }
     }
 }

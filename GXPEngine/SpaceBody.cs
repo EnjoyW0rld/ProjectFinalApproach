@@ -11,7 +11,6 @@ namespace GXPEngine
         public Vec2 pos { get; private set; }
         protected float gravityRadius;
         protected float mass;
-        float planetRadius;
         public BallCollider ballCollider { get; private set; }
         
         Sprite body;
@@ -41,5 +40,17 @@ namespace GXPEngine
         }
         public virtual float GetGravityRadius() => gravityRadius;
         public virtual BallCollider GetCollider() => ballCollider;
+
+        internal virtual void DragShip(Player player, float distance)
+        {
+            Vec2 direction = (pos - player.pos).Normalized();
+            float force = GravityForce(player.Mass(), mass, distance);
+            player.AddVelocity(direction * force);
+        }
+        public static float GravityForce(float m1, float m2, float distance)
+        {
+            return 6.672f * Mathf.Pow(10, -7) * (m1 * m2) / Mathf.Pow(distance, 2);
+        }
+
     }
 }

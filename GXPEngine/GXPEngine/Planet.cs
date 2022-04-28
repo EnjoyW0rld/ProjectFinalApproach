@@ -15,7 +15,8 @@ namespace GXPEngine
             float m, string path, string oreolPath = "circle.png") : base(ppos, gRad, planetR, m, path)
         {
             pos = ppos;
-            AddChild(ballCollider = new BallCollider(ppos, planetR));
+            ballCollider = new BallCollider(ppos, planetR);
+            AddChild(ballCollider);
             CreateOreol(oreolPath);
         }
         void Update()
@@ -52,14 +53,14 @@ namespace GXPEngine
         /// </summary>
         /// <param name="player"></param>
         /// <param name="distance"></param>
-        void DragShip(Player player, float distance)
+        /*void DragShip(Player player, float distance)
         {
             
             Vec2 direction = (pos - player.pos).Normalized();
             float force = GravityForce(player.Mass(),mass,distance);
             player.AddVelocity(direction * force);
 
-        }
+        }*/
 
         void CreateOreol()
         {
@@ -71,10 +72,10 @@ namespace GXPEngine
             AddChild(oreol);
         }
 
-        public static float GravityForce(float m1, float m2, float distance)
+        /*public static float GravityForce(float m1, float m2, float distance)
         {
             return 6.672f * Mathf.Pow(10,-7) * (m1 * m2) / Mathf.Pow(distance, 2);
-        }
+        }*/
         public float Mass() => mass;
         //public float GetGravityRadius() => gravityRadius;
         public override BallCollider GetCollider()
