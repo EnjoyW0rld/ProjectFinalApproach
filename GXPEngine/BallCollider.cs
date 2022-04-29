@@ -26,6 +26,18 @@ namespace GXPEngine
         }
         void Update()
         {
+            if (Input.GetKeyDown(Key.C)) 
+            {
+                if(GetChildCount() == 1)
+                {
+                    RemoveChild(debugC);
+                }
+                else
+                {
+                AddChild(debugC); 
+
+                }
+            }
             GameObject obj = (GameObject)parent;
             pos.x = obj.x;
             pos.y = obj.y;

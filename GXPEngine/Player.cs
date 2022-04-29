@@ -28,7 +28,7 @@ namespace GXPEngine
             AddChild(body);
             thruster = new Thruster();
             //AddChild(thruster);
-            ballCollider = new BallCollider(pos, body.width / 2 - 20);
+            ballCollider = new BallCollider(pos, body.width / 2 - 25);
             AddChild(ballCollider);
         }
         void Update()
@@ -59,9 +59,9 @@ namespace GXPEngine
             if(Input.GetKey(Key.R)) pos = new Vec2(100,100);
             if(Input.GetKey(Key.T)) velocity = new Vec2();
             acceleration = new Vec2();
-            if (Input.GetKey(Key.A)) rotation += 2;
-            if(Input.GetKey(Key.D)) rotation -= 2;
-            if(Input.GetKey(Key.S)) acceleration = Vec2.GetUnitVectorDeg(rotation);
+            if (Input.GetKey(Key.A)) rotation -= 2;
+            if(Input.GetKey(Key.D)) rotation += 2;
+            //if(Input.GetKey(Key.S)) acceleration = Vec2.GetUnitVectorDeg(rotation);
             if(Input.GetKey(Key.W)) acceleration = Vec2.GetUnitVectorDeg(rotation);
 
             velocity += acceleration.Normalized() * SPEED;

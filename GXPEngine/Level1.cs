@@ -16,7 +16,7 @@ namespace GXPEngine
 
         public Level1()
         {
-            planets.Add(new Planet(new Vec2(656,441), 300, 100, 5000, "Assets/planet_purple_cel.png"));
+            planets.Add(new Planet(new Vec2(456,441), 300, 100, 5000, "Assets/planet_purple_cel.png"));
             planets.Add(new Planet(new Vec2(958,740), 300, 100, 5000, "Assets/planet_green.png"));
             planets.Add(new Planet(new Vec2(1115,337), 300, 100, 5000, "Assets/planet_green.png"));
             planets.Add(new Planet(new Vec2(1413,241), 300, 100, 5000, "Assets/planet_green.png"));
