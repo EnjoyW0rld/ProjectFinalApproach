@@ -30,13 +30,18 @@ namespace GXPEngine
             //Check if ship is in gravity affected area
             if(distanceToPlanet <= gravityRadius && distanceToPlanet > ballCollider.radius + player.ballCollider.radius)
             {
+                Console.WriteLine();
                 DragShip(player,distanceToPlanet);
                 
             }
             
 
             //Check if sattelites are in the gravity area
-            foreach(var satelite in par.GetSatelites())
+            Satelite[] satelites = par.GetSatelites();
+            if(satelites != null && satelites.Length > 0)
+            {
+
+            foreach(var satelite in satelites)
             {
                 float distanceTo = satelite.pos.DistanceTo(pos);
                 if(distanceTo <= gravityRadius)
@@ -44,6 +49,7 @@ namespace GXPEngine
                     float force = GravityForce(satelite.Mass(), mass, distanceTo);
                     satelite.ApplyThrust((pos - satelite.pos) * force);
                 }
+            }
             }
         }
 

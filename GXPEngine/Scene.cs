@@ -9,17 +9,33 @@ namespace GXPEngine
     internal class Scene : GameObject
     {
 
+        List<SpaceBody> spaceBodies = new List<SpaceBody>();
+        Player player;
+        BallCollider[] colliders;
         public Scene(string mapName)
         {
-            MyMapInterpritor.GetLevel(mapName);
+            foreach (GameObject item in MyMapInterpritor.GetGameObjects("level1.tmx"))
+            {
+                spaceBodies.Add(item as SpaceBody);
+                AddChild(item);
+            }
+            AddChild(player = new Player());
         }
-        virtual internal void SpawnObjects(TiledMapParser.ObjectGroup[])
-        {
-
-        }
-        virtual public Player GetPlayer() => null;
+        
+        virtual public Player GetPlayer() => player;
         virtual public Satelite[] GetSatelites() => null;
-        virtual public BallCollider[] GetBallColliders() => null;
+        virtual public BallCollider[] GetBallColliders()
+        {
+            if (colliders == null)
+            {
+                colliders = new BallCollider[spaceBodies.Count];
+                for (int i = 0; i < spaceBodies.Count; i++)
+                {
+                    colliders[i] = spaceBodies[i].GetCollider();
+                }
+            }
+            return colliders;
+        }
         virtual public SpaceBody[] GetSpaceBodies() => null;
     }
 }

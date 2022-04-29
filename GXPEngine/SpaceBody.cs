@@ -49,6 +49,7 @@ namespace GXPEngine
         }
         public static float GravityForce(float m1, float m2, float distance)
         {
+
             return 6.672f * Mathf.Pow(10, -7) * (m1 * m2) / Mathf.Pow(distance, 2);
         }
 

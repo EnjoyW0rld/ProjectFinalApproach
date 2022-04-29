@@ -17,21 +17,32 @@ namespace GXPEngine
             return objects;
         }
 
-        public static GameObject[] GetGameObjects(ObjectGroup[] objGroups)
+        public static GameObject[] GetGameObjects(string fileName)
         {
-            foreach (ObjectGroup objGroup in objGroups)
+
+            List<GameObject> objects = new List<GameObject>();
+            foreach (ObjectGroup objGroup in GetLevel(fileName))
             {
                 foreach(TiledObject obj in objGroup.Objects)
                 {
-                    
+                    objects.Add(InitializeObject(obj));
                 }
             }
-            return null;
+            return objects.ToArray();
         }
 
-        static void InitializeObject(TiledObject obj)
+        static GameObject InitializeObject(TiledObject obj)
         {
-            //switch()
+            switch (obj.Type)
+            {
+                case "Planet":
+                    return (new Planet(new Vec2(obj.X + obj.Width/2,obj.Y + obj.Height/2)
+                        ,obj.GetIntProperty("GravityRadius"),
+                        (int)(obj.Width/2), obj.GetIntProperty("mass") * 1000,
+                        "Assets/" + obj.Name));
+                    break;
+            }
+            return null;
         }
     }
 }
