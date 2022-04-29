@@ -9,7 +9,11 @@ namespace GXPEngine
     internal class Scene : GameObject
     {
 
-        public Scene()
+        public Scene(string mapName)
+        {
+            MyMapInterpritor.GetLevel(mapName);
+        }
+        virtual internal void SpawnObjects(TiledMapParser.ObjectGroup[])
         {
 
         }

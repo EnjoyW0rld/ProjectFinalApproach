@@ -14,7 +14,7 @@ namespace GXPEngine
         BallCollider[] colliders;
         MyCamera cam;
 
-        public Level1()
+        public Level1(string name = "level1.tmx") : base(name)
         {
             planets.Add(new Planet(new Vec2(456,441), 300, 100, 5000, "Assets/planet_purple_cel.png"));
             planets.Add(new Planet(new Vec2(958,740), 300, 100, 5000, "Assets/planet_green.png"));
