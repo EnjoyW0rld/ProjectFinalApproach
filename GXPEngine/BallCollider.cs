@@ -14,7 +14,7 @@ namespace GXPEngine
         Sprite debugC;
         public BallCollider(Vec2 p, float r)
         {
-            debugC = new Sprite("circle.png");
+            debugC = new Sprite("Assets/planet_green.png");
             debugC.SetOrigin(debugC.width/2,debugC.height/2);
             debugC.height = (int)(r * 2);
             debugC.width = (int)(r * 2);

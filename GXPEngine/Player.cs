@@ -26,7 +26,7 @@ namespace GXPEngine
             body.SetOrigin(body.width/2,body.height/2);
             body.scale = 0.2f;
             AddChild(body);
-            thruster = new Thruster();
+            //thruster = new Thruster();
             //AddChild(thruster);
             ballCollider = new BallCollider(pos, body.width / 2 - 20);
             AddChild(ballCollider);
