@@ -30,7 +30,7 @@ namespace GXPEngine
             AddChild(cam);
 
             foreach (var planet in planets) AddChild(planet);
-            satelites.Add(new Satelite(planets[0]));
+            //satelites.Add(new Satelite(planets[0]));
             //satelites.Add(new Satelite(planets[1]));
             foreach(var sat in satelites)AddChild(sat);
         }
