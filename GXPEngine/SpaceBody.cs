@@ -15,17 +15,18 @@ namespace GXPEngine
         
         Sprite body;
 
-        public SpaceBody(Vec2 ppos, float gRad,int planetR, float m, string path)
+        public SpaceBody(Vec2 ppos, float gRad,int planetR, float m, string path, float r = 0)
         {
             pos = ppos;
             gravityRadius = gRad;
             mass = m * 1000;
-
             SetXY(pos.x, pos.y);
+
             body = new Sprite(path, false);
             body.SetOrigin(body.width/2, body.height/2);
             body.height = (planetR * 2);
             body.width = (planetR * 2);
+            body.rotation = r;
             AddChild(body);
             
         }

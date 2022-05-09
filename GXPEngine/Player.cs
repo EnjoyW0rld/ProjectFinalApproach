@@ -136,7 +136,8 @@ namespace GXPEngine
                     Planet planet = (Planet)ColParent;
                     if(planet.st == Planet.PlanetState.End)
                     {
-                        EventsHandler.LevelChange?.Invoke(planet.currentLevelNumber);
+                        Scene sc = parent as Scene;
+                        EventsHandler.LevelChange?.Invoke(sc.sceneNumber);
                     }
                 }
             }

@@ -12,7 +12,6 @@ namespace GXPEngine
         public new Vec2 pos { get; private set; }
         public new BallCollider ballCollider { get; private set; }
         public readonly PlanetState st;
-        public readonly int currentLevelNumber;
 
         public Planet(Vec2 ppos, float gRad, int planetR,
             float m, string path, string oreolPath = "Assets/blueSphere.png", PlanetState plst = PlanetState.Regular) : base(ppos, gRad, planetR, m, path)

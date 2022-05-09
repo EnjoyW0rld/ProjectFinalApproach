@@ -42,7 +42,10 @@ namespace GXPEngine
                         ,obj.GetIntProperty("GravityRadius"),
                         (int)(obj.Width/2), obj.GetIntProperty("mass") * 1000,
                         "Assets/" + obj.Name,"Assets/blueSphere.png",GetPlanetState(obj.GetStringProperty("PlanetRole"))));
-                    break;
+                case "Portal":
+                    return (new Portal(new Vec2(obj.X + obj.Width/2,obj.Y + obj.Height/2),
+                        obj.GetIntProperty("GravityRadius"),obj.GetIntProperty("GateNumber"),
+                        obj.GetIntProperty("rotation"),(int)obj.Width/2,obj.GetIntProperty("mass"),"Assets/" + obj.Name));
             }
             return null;
         }

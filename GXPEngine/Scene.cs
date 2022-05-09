@@ -12,7 +12,7 @@ namespace GXPEngine
         List<SpaceBody> spaceBodies = new List<SpaceBody>();
         Player player;
         BallCollider[] colliders;
-        int sceneNumber;
+        public readonly int sceneNumber;
 
         public Scene(string mapName)
         {
@@ -40,6 +40,6 @@ namespace GXPEngine
             }
             return colliders;
         }
-        virtual public SpaceBody[] GetSpaceBodies() => null;
+        virtual public SpaceBody[] GetSpaceBodies() => spaceBodies.ToArray();
     }
 }

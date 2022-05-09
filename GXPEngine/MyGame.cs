@@ -32,9 +32,10 @@ public class MyGame : Game
 	void ChangeTo(int n)
     {
 		foreach(var item in GetChildren()) RemoveChild(item);
-		if(scenes.Count + 1 >= n + 1) AddChild(scenes[n+1]);
+		if(scenes.Count + 1 >= n + 1) AddChild(scenes[n]);
         Console.WriteLine("levelChanged");
     }
+
 	static void Main()							// Main() is the first method that's called when the program is run
 	{
 

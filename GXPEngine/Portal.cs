@@ -20,15 +20,15 @@ namespace GXPEngine
         public new BallCollider ballCollider { get; private set; }
 
         public Portal(Vec2 ppos,float gRad, float gate,
-            float rotate,int planetR,int m,string path) : base(ppos,gRad,planetR,m,path)
+            float rotate,int planetR,int m,string path) : base(ppos,gRad,planetR,m,path,rotate)
         {
+            
             pos = ppos;
             CreateOreol("Assets/violetSphere.png");
             ballCollider = new BallCollider(ppos, planetR);
             AddChild(ballCollider);
             gateNumber = gate;
             facingDirection = rotate;
-            rotation = rotate;
             
             //AddChild(ballCollider = new BallCollider(ppos,));
         }
