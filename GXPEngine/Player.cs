@@ -16,12 +16,15 @@ namespace GXPEngine
         const float SPEED = 0.5f;
         const float mass = 1000f; 
         Sprite body;
-        Thruster thruster;
         public readonly BallCollider ballCollider;
+
+        public int fuelAmount { get; private set; } 
 
         public Player()
         {
-            pos = new Vec2(200,200);
+
+            fuelAmount = 100;
+            //pos = new Vec2(200,200);
             body = new Sprite("Assets/mockup1.png");
             body.SetOrigin(body.width/2,body.height/2);
             body.scale = 0.2f;
@@ -31,13 +34,23 @@ namespace GXPEngine
             ballCollider = new BallCollider(pos, body.width / 2 - 25);
             AddChild(ballCollider);
         }
+        public void SetStartPos(Vec2 posit)
+        {
+            pos = posit;
+            UpdatePosition();
+        }
         void Update()
         {
             
             oldPos = pos;
-            HandleControls();
             pos += velocity;
             //velocity *= 0.9f;
+            if(fuelAmount > 0)
+            {
+            HandleControls();
+
+            }
+            
             UpdatePosition();
             CollisionInfo colInfo = FindEarliestCollsion();
             if(colInfo != null)
@@ -54,6 +67,7 @@ namespace GXPEngine
             x = pos.x;
             y = pos.y;
         }
+
         void HandleControls()
         {
             //Debug options, remove later
@@ -65,11 +79,17 @@ namespace GXPEngine
             if(Input.GetKey(Key.D)) rotation += 2;
             //if(Input.GetKey(Key.S)) acceleration = Vec2.GetUnitVectorDeg(rotation);
             if(Input.GetKey(Key.W)) acceleration = Vec2.GetUnitVectorDeg(rotation);
-
+            if (acceleration.Length() > 0) fuelAmount--;
             velocity += acceleration.Normalized() * SPEED;
              
-            if (Input.GetKey(Key.G)) rotation++;
         }
+        void ShipShoot()
+        {
+            if (Input.GetKey(Key.A)) rotation -= 2;
+            if (Input.GetKey(Key.D)) rotation += 2;
+            
+        }
+
         public void AddVelocity(Vec2 vel)
         {
             velocity += vel;

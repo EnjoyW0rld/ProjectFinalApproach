@@ -25,7 +25,7 @@ namespace GXPEngine
             //planets.Add(new Portal(new Vec2(1600, 450), 400,1,90,200,1000,"circle.png"));
             //planets.Add(new Portal(new Vec2(2400, 450), 300,1,-90,200,1000,"triangle.png"));
 
-            AddChild(player = new Player());
+            //AddChild(player = new Player());
             cam = new MyCamera(player);
             AddChild(cam);
 
