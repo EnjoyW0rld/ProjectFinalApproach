@@ -33,7 +33,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="14" name="planet_purple.png" type="Planet" x="814" y="220" width="226" height="226">
+  <object id="14" name="SunPlanet.png" type="Planet" x="640" y="188" width="454" height="454">
    <properties>
     <property name="GravityRadius" type="int" value="450"/>
     <property name="PlanetRole" value="Regular"/>

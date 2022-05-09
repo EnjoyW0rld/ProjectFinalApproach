@@ -41,7 +41,7 @@ namespace GXPEngine
         }
         void Update()
         {
-            
+            if (Input.GetKeyDown(Key.V)) AddChild(new Tween(Tween.Parameter.x, 2, 600, Tween.Function.easeInQuad));
             oldPos = pos;
             pos += velocity;
             //velocity *= 0.9f;
@@ -180,6 +180,17 @@ namespace GXPEngine
                         pos = othP.pos + propDirection * (othP.ballCollider.radius + ballCollider.radius);
                     }
                 }
+            }
+        }
+
+        //Use only in Tween!!
+        public void ChangePos(float px = -1,float py = -1)
+        {
+            if (px != -1) pos = new Vec2(px, pos.y);
+            if (py != -1)
+            {
+                pos = new Vec2(pos.x, py);
+
             }
         }
     }

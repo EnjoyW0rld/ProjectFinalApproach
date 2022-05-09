@@ -21,7 +21,7 @@ namespace GXPEngine
         {
             HUD = new EasyDraw(1920,1080,false);
             player = new Player();
-            AddChild(new Sprite("Assets/spaceback.png"));
+            //AddChild(new Sprite("Assets/spaceback.png"));
             foreach (GameObject item in MyMapInterpritor.GetGameObjects(mapName))
             {
                 spaceBodies.Add(item as SpaceBody);
@@ -38,7 +38,6 @@ namespace GXPEngine
             }
             AddChild(player);
             player.SetStartPos(playerStartPos);
-            
             AddChild(HUD);
             sceneNumber = MyMapInterpritor.GetLevelNumber(mapName);
         }
