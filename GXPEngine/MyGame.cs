@@ -11,12 +11,15 @@ public class MyGame : Game
 	{
 		//Scene sc = new Scene("level1.tmx");
 		targetFps = 60;
-		scenes.Add(new Scene("level1.tmx"));
-        //AddChild(scenes[0]);
-        foreach (var item in scenes)
+        foreach (string item in Directory.GetFiles("Assets/Levels/"))
         {
-			AddChild(item);
+			scenes.Add(new Scene(item));
         }
+        //scenes.Add(new Scene("level1.tmx"));
+        //AddChild(scenes[0]);
+
+        AddChild(scenes[0]);
+        
 		EventsHandler.LevelChange += ChangeTo;
 	}
 
@@ -26,8 +29,10 @@ public class MyGame : Game
 		//Gizmos.DrawLine(,null,255);
 		// Empty
 	}
-	void ChangeTo()
+	void ChangeTo(int n)
     {
+		foreach(var item in GetChildren()) RemoveChild(item);
+		if(scenes.Count + 1 >= n + 1) AddChild(scenes[n+1]);
         Console.WriteLine("levelChanged");
     }
 	static void Main()							// Main() is the first method that's called when the program is run

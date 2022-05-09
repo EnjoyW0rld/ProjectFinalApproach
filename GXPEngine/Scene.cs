@@ -12,14 +12,18 @@ namespace GXPEngine
         List<SpaceBody> spaceBodies = new List<SpaceBody>();
         Player player;
         BallCollider[] colliders;
+        int sceneNumber;
+
         public Scene(string mapName)
         {
-            foreach (GameObject item in MyMapInterpritor.GetGameObjects("level1.tmx"))
+
+            foreach (GameObject item in MyMapInterpritor.GetGameObjects(mapName))
             {
                 spaceBodies.Add(item as SpaceBody);
                 AddChild(item);
             }
             AddChild(player = new Player());
+            sceneNumber = MyMapInterpritor.GetLevelNumber(mapName);
         }
         
         virtual public Player GetPlayer() => player;

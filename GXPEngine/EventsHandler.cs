@@ -8,6 +8,6 @@ namespace GXPEngine
 {
     internal class EventsHandler
     {
-        public static Action LevelChange;
+        public static Action<int> LevelChange;
     }
 }

@@ -56,8 +56,10 @@ namespace GXPEngine
         }
         void HandleControls()
         {
+            //Debug options, remove later
             if(Input.GetKey(Key.R)) pos = new Vec2(100,100);
             if(Input.GetKey(Key.T)) velocity = new Vec2();
+
             acceleration = new Vec2();
             if (Input.GetKey(Key.A)) rotation -= 2;
             if(Input.GetKey(Key.D)) rotation += 2;
@@ -128,6 +130,14 @@ namespace GXPEngine
                     Portal portal = (Portal)ColParent;
                     TeleportUsingPortal(portal);
                     return;
+                }
+                if (ColParent is Planet)
+                {
+                    Planet planet = (Planet)ColParent;
+                    if(planet.st == Planet.PlanetState.End)
+                    {
+                        EventsHandler.LevelChange?.Invoke(planet.currentLevelNumber);
+                    }
                 }
             }
             //pos = oldPos + velocity * colInfo.TOI;
