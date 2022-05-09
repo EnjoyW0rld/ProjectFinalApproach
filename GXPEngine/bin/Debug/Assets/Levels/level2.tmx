@@ -40,7 +40,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="3" name="planet_purple.png" type="Portal" x="834.787" y="94.7664" width="384" height="384">
+  <object id="3" name="planet_purple.png" type="Portal" x="202.034" y="719.105" width="384" height="384">
    <properties>
     <property name="GravityRadius" type="int" value="200"/>
     <property name="rotation" type="int" value="90"/>

@@ -16,7 +16,7 @@ namespace GXPEngine
 
         public Scene(string mapName)
         {
-
+            AddChild(new Sprite("Assets/spaceback.png"));
             foreach (GameObject item in MyMapInterpritor.GetGameObjects(mapName))
             {
                 spaceBodies.Add(item as SpaceBody);
