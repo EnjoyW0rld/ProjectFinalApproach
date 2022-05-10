@@ -166,8 +166,6 @@ namespace GXPEngine
         }
         void TeleportUsingPortal(Portal port)
         {
-            Vec2 propDirection = Vec2.GetUnitVectorDeg(port.facingDirection);
-            velocity = propDirection * velocity.Length();
             Scene sc = (Scene)parent;
             SpaceBody[] bodies = sc.GetSpaceBodies();
             foreach(SpaceBody b in bodies)
@@ -177,7 +175,9 @@ namespace GXPEngine
                     Portal othP = (Portal)b;
                     if(othP.gateNumber == port.gateNumber)
                     {
+                        Vec2 propDirection = Vec2.GetUnitVectorDeg(othP.facingDirection);
                         pos = othP.pos + propDirection * (othP.ballCollider.radius + ballCollider.radius);
+                        velocity = propDirection * velocity.Length();
                     }
                 }
             }
