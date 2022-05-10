@@ -12,34 +12,40 @@ namespace GXPEngine
         public enum Function { easeInQuad }
 
         float easeTime;
+        float startTime;
         float value;
         float startValue;
         float currentValue;
+        float delay;
 
         Parameter parameter;
         Function function;
 
         bool startValueAssigned;
-        public Tween(Parameter p, float t, float desiredValue,Function func)
+        public Tween(Parameter p, float t, float desiredValue,Function func, float del = 0)
         {
             value = desiredValue;
             function = func;
             parameter = p;
-            easeTime = (t * 1000) + Time.time;
+            startTime = Time.time;
+            delay = del * 1000;
+            easeTime = (t * 1000) + delay;
         }
 
         void Update()
         {
+            if (delay >= (Time.time - startTime)) return;
+
             if (!startValueAssigned) GetStartValue();
             currentValue = GetCurrentValue();
             ApplyData();
-            if(easeTime <= Time.time)
+            if(easeTime <= (Time.time - startTime))
             {
                 currentValue = value;
                 ApplyData();
+                parent.RemoveChild(this);
                 LateDestroy();
                 LateRemove();
-                parent.RemoveChild(this);
             }
         }
 
@@ -64,7 +70,7 @@ namespace GXPEngine
         {
             switch (function)
             {
-                case Function.easeInQuad: return Lerp(startValue, value, easeInQuad(Time.time / easeTime));
+                case Function.easeInQuad: return Lerp(startValue, value, easeInQuad((Time.time - startTime) / easeTime));
             }
             return 0;
         }

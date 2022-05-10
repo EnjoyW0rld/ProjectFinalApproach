@@ -14,13 +14,14 @@ namespace GXPEngine
         BallCollider[] colliders;
         Vec2 playerStartPos;
         public readonly int sceneNumber;
-        EasyDraw HUD;
-
+        //EasyDraw HUD;
+        HUD hud;
 
         public Scene(string mapName)
         {
-            HUD = new EasyDraw(1920,1080,false);
+            //HUD = new EasyDraw(1920,1080,false);
             player = new Player();
+            hud = new HUD(player);
             //AddChild(new Sprite("Assets/spaceback.png"));
             foreach (GameObject item in MyMapInterpritor.GetGameObjects(mapName))
             {
@@ -38,13 +39,11 @@ namespace GXPEngine
             }
             AddChild(player);
             player.SetStartPos(playerStartPos);
-            AddChild(HUD);
+            AddChild(hud);
             sceneNumber = MyMapInterpritor.GetLevelNumber(mapName);
         }
         void Update()
         {
-            HUD.ClearTransparent();
-            HUD.Text("Fuel left: " + player.fuelAmount, 10, 200);
         }
         virtual public Player GetPlayer() => player;
         virtual public Satelite[] GetSatelites() => null;

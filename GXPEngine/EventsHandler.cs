@@ -9,5 +9,8 @@ namespace GXPEngine
     internal class EventsHandler
     {
         public static Action<int> LevelChange;
+        public static Action<int> TransitionEnded;
+        public static Action OpenTransition;
+        public static Action<BallCollider> EnteredEndPlanet;
     }
 }

@@ -36,7 +36,7 @@ namespace GXPEngine
             oreol.SetOrigin(oreol.width / 2, oreol.height / 2);
             oreol.width = (int)gravityRadius * 2;
             oreol.height = (int)gravityRadius * 2;
-            oreol.alpha = 0.2f;
+            oreol.alpha = 0.8f;
             AddChild(oreol);
         }
         public virtual float GetGravityRadius() => gravityRadius;

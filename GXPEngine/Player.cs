@@ -18,7 +18,8 @@ namespace GXPEngine
         Sprite body;
         public readonly BallCollider ballCollider;
 
-        public int fuelAmount { get; private set; } 
+        public int fuelAmount { get; private set; }
+        bool ReachedEnd;
 
         public Player()
         {
@@ -33,6 +34,7 @@ namespace GXPEngine
             //AddChild(thruster);
             ballCollider = new BallCollider(pos, body.width / 2 - 25);
             AddChild(ballCollider);
+            //EventsHandler.EnteredEndPlanet += EaseToPlanet;
         }
         public void SetStartPos(Vec2 posit)
         {
@@ -41,17 +43,23 @@ namespace GXPEngine
         }
         void Update()
         {
-            if (Input.GetKeyDown(Key.V)) AddChild(new Tween(Tween.Parameter.x, 2, 600, Tween.Function.easeInQuad));
+
+
+            
+            
+
             oldPos = pos;
             pos += velocity;
             //velocity *= 0.9f;
             if(fuelAmount > 0)
             {
-            HandleControls();
-
+                    HandleControls();
+            
+            
             }
             
             UpdatePosition();
+            if (Input.GetKeyDown(Key.V)) AddChild(new Tween(Tween.Parameter.x, 2, 600, Tween.Function.easeInQuad));
             CollisionInfo colInfo = FindEarliestCollsion();
             if(colInfo != null)
             {
@@ -192,6 +200,18 @@ namespace GXPEngine
                 pos = new Vec2(pos.x, py);
 
             }
+            UpdatePosition();
+        }
+
+        void EaseToPlanet(BallCollider ballC)
+        {
+            Vec2 offset = ((pos - ballC.pos).Normalized() * (ballC.radius +ballCollider.radius + 50));
+            Vec2 direction = ballC.pos + offset;
+            ReachedEnd = true;
+            AddChild(new Tween(Tween.Parameter.x, 1, direction.x,Tween.Function.easeInQuad));
+            AddChild(new Tween(Tween.Parameter.y, 1, direction.y,Tween.Function.easeInQuad));
+            EventsHandler.EnteredEndPlanet -= EaseToPlanet;
+            
         }
     }
 }
