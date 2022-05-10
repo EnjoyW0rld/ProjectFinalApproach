@@ -47,6 +47,7 @@
     <Compile Include="GXPEngine\AddOns\SpriteBatch.cs" />
     <Compile Include="GXPEngine\AddOns\TiledLoader.cs" />
     <Compile Include="GXPEngine\Planet.cs" />
+    <Compile Include="HUD.cs" />
     <Compile Include="Level1.cs" />
     <Compile Include="MyCamera.cs" />
     <Compile Include="MyGame.cs" />
