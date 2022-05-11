@@ -30,7 +30,7 @@ namespace GXPEngine
             maxSpeed = PlayerInfo.MaxSpeed;
             fuelAmount = PlayerInfo.fuelCount;
             //pos = new Vec2(200,200);
-            body = new Sprite("Assets/mockup1.png");
+            body = new Sprite("Assets/sharky.png");
             body.SetOrigin(body.width/2,body.height/2);
             body.scale = 0.2f;
             AddChild(body);
@@ -62,6 +62,8 @@ namespace GXPEngine
 
             CollisionInfo colInfo = FindEarliestCollsion();
 
+            if (Input.GetKeyDown(Key.U)) EventsHandler.LevelChange(10);
+
             if(colInfo != null)
             {
                 ResolveCollision(colInfo);
@@ -70,6 +72,11 @@ namespace GXPEngine
             if(velocity.Length() > maxSpeed)
             {
                 velocity = velocity.Normalized() * maxSpeed;
+            }
+
+            if((pos.x > 1920 || pos.x < 0) || (pos.y > 1080 || pos.y < 0))
+            {
+                EventsHandler.LevelChange?.Invoke(9);                
             }
         }
         void UpdatePosition()
@@ -89,7 +96,13 @@ namespace GXPEngine
             if(Input.GetKey(Key.D)) rotation += 2;
             //if(Input.GetKey(Key.S)) acceleration = Vec2.GetUnitVectorDeg(rotation);
             if(Input.GetKey(Key.W)) acceleration = Vec2.GetUnitVectorDeg(rotation);
-            if (acceleration.Length() > 0) fuelAmount--;
+
+            if (acceleration.Length() > 0)
+            {
+                fuelAmount--;
+                PlayerInfo.currentFuelCount = fuelAmount;
+            }
+
             velocity += acceleration.Normalized() * SPEED;
              
         }

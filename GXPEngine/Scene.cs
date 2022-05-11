@@ -53,10 +53,12 @@ namespace GXPEngine
             player.SetStartPos(playerStartPos);
             AddChild(hud);
             sceneNumber = MyMapInterpritor.GetLevelNumber(mapName);
-        }
-        public Scene()
-        {
 
+
+        }
+        public Scene(int scN)
+        {
+            sceneNumber = scN;
         }
         void Update()
         {

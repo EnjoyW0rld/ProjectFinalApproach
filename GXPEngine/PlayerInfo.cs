@@ -15,6 +15,8 @@ namespace GXPEngine
         public static float Acceleraion;
         public static int mass;
 
+        public static int currentFuelCount;
+
         public static void LoadPlayerInfo()
         {
             if (!File.Exists("Assets/PlayerInfo.txt"))
@@ -41,6 +43,7 @@ namespace GXPEngine
                         break;
                 }
             }
+            currentFuelCount = fuelCount;
 
         }
     }

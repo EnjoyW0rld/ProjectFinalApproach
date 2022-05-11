@@ -1,4 +1,4 @@
-fuel:600
+fuel:100
 MaxSpeed:5
 AcceleraionSpeed:0.5
 Mass:1000

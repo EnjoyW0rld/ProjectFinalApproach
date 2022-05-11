@@ -11,21 +11,21 @@ public class MyGame : Game
 	bool isLoading;
 	int nextLevel;
 	Tween screenCover;
-	Tween screenShake;
-	public MyGame() : base(1920, 1080, false,false)		// Create a window that's 800x600 and NOT fullscreen
+    Tween screenShake;
+
+    public MyGame() : base(1920, 1080, false,false)		// Create a window that's 800x600 and NOT fullscreen
 	{
 		transition = new EasyDraw(1920, 1080,false);
 		transition.Clear(0);
 		transition.x = -1920;
-		//Scene sc = new Scene("level1.tmx");
+
+		//AddChild();
 		targetFps = 60;
         foreach (string item in Directory.GetFiles("Assets/Levels/"))
         {
 			scenes.Add(new Scene(item));
         }
-        //scenes.Add(new Scene("level1.tmx"));
-        //AddChild(scenes[0]);
-
+		scenes.Add(new DeathScreen(10));
         AddChild(scenes[0]);
 		EventsHandler.LevelChange += StartLoading;
 		EventsHandler.ShakeScreen += ApplyScreenShake;
@@ -60,7 +60,11 @@ public class MyGame : Game
 			if(!(item is EasyDraw))
 			RemoveChild(item);
 		}
-		if(scenes.Count + 1 >= n + 1) AddChildAt(scenes[n],0);
+			foreach(Scene scene in scenes)
+            {
+				if(scene.sceneNumber == n + 1) 
+			AddChildAt(scene, 0);
+            }
         Console.WriteLine("levelChanged");
 		//EventsHandler.OpenTransition?.Invoke();
 		transition.AddChild(new Tween(Tween.Parameter.x, 1, -1920, Tween.Function.easeInQuad));
