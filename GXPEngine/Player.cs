@@ -44,10 +44,6 @@ namespace GXPEngine
         void Update()
         {
 
-
-            
-            
-
             oldPos = pos;
             pos += velocity;
             //velocity *= 0.9f;
@@ -59,12 +55,14 @@ namespace GXPEngine
             }
             
             UpdatePosition();
-            if (Input.GetKeyDown(Key.V)) AddChild(new Tween(Tween.Parameter.x, 2, 600, Tween.Function.easeInQuad));
+
             CollisionInfo colInfo = FindEarliestCollsion();
+
             if(colInfo != null)
             {
                 ResolveCollision(colInfo);
             }
+
             if(velocity.Length() > 5)
             {
                 velocity = velocity.Normalized() * 5;
@@ -127,6 +125,7 @@ namespace GXPEngine
 
             return coll;
         }
+
         float CollisionTOI(BallCollider othColl)
         {
             Vec2 u = oldPos - othColl.pos;
@@ -167,6 +166,13 @@ namespace GXPEngine
                         Scene sc = parent as Scene;
                         EventsHandler.LevelChange?.Invoke(sc.sceneNumber);
                     }
+                }
+                if(ColParent is Satelite)
+                {
+                    Satelite collSatelite = (Satelite)ColParent;
+                    collSatelite.Collided();
+                    collSatelite.ApplyThrust(velocity);
+
                 }
             }
             //pos = oldPos + velocity * colInfo.TOI;

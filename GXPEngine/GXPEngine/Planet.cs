@@ -12,20 +12,26 @@ namespace GXPEngine
         public new Vec2 pos { get; private set; }
         public new BallCollider ballCollider { get; private set; }
         public readonly PlanetState st;
-        
+
+        public readonly bool addSatelite;
+        public readonly float sSpeed;
 
         public Planet(Vec2 ppos, float gRad, int planetR,
-            float m, string path, string oreolPath = "Assets/blueSphere.png", PlanetState plst = PlanetState.Regular) : base(ppos, gRad, planetR, m, path)
+            float m, string path, string oreolPath = "Assets/blueSphere.png", PlanetState plst = PlanetState.Regular, bool sat = false, float satSpeed = 1) : base(ppos, gRad, planetR, m, path)
         {
             pos = ppos;
             st = plst;
             ballCollider = new BallCollider(ppos, planetR);
             AddChild(ballCollider);
             CreateOreol(oreolPath);
+            addSatelite = sat;
+            sSpeed = satSpeed;
+
         }
         void Update()
         {
             
+
             //MyGame myGame = (MyGame)game;
             Scene par = (Scene)parent;
             Player player = par.GetPlayer();
@@ -54,7 +60,7 @@ namespace GXPEngine
                 float distanceTo = satelite.pos.DistanceTo(pos);
                 if(distanceTo <= gravityRadius)
                 {
-                    float force = GravityForce(satelite.Mass(), mass, distanceTo);
+                        float force = GravityForce(satelite.Mass(), mass, distanceTo);
                     satelite.ApplyThrust((pos - satelite.pos) * force);
                 }
             }
@@ -77,6 +83,10 @@ namespace GXPEngine
         
         public float Mass() => mass;
         //public float GetGravityRadius() => gravityRadius;
+        public override float GetGravityRadius()
+        {
+            return gravityRadius;
+        }
         public override BallCollider GetCollider()
         {
             return ballCollider;

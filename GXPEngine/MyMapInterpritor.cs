@@ -41,7 +41,8 @@ namespace GXPEngine
                     return (new Planet(new Vec2(obj.X + obj.Width/2,obj.Y + obj.Height/2)
                         ,obj.GetIntProperty("GravityRadius"),
                         (int)(obj.Width/2), obj.GetIntProperty("mass") * 1000,
-                        "Assets/" + obj.Name,"Assets/blueSphere.png",GetPlanetState(obj.GetStringProperty("PlanetRole"))));
+                        "Assets/" + obj.Name,"Assets/blueSphere.png",GetPlanetState(obj.GetStringProperty("PlanetRole")),
+                        obj.GetBoolProperty("AddSatelite"),obj.GetFloatProperty("SateliteSpeed")));
                 case "Portal":
                     return (new Portal(new Vec2(obj.X + obj.Width/2,obj.Y + obj.Height/2),
                         obj.GetIntProperty("GravityRadius"),obj.GetIntProperty("GateNumber"),
@@ -79,6 +80,11 @@ namespace GXPEngine
             Map map = getMap(path);
             return map.GetIntProperty("LevelNumber");
         }
+        public static Sprite GetBackground(string path)
+        {
 
+            return new Sprite("Assets/" + getMap(path).GetStringProperty("Background"),false);
+        }
+        
     }
 }
