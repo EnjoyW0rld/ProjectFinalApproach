@@ -54,6 +54,10 @@ namespace GXPEngine
             AddChild(hud);
             sceneNumber = MyMapInterpritor.GetLevelNumber(mapName);
         }
+        public Scene()
+        {
+
+        }
         void Update()
         {
         }

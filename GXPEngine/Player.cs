@@ -169,13 +169,16 @@ namespace GXPEngine
                     {
                         Scene sc = parent as Scene;
                         EventsHandler.LevelChange?.Invoke(sc.sceneNumber);
+                        return;
                     }
+                    EventsHandler.ShakeScreen?.Invoke();
                 }
                 if(ColParent is Satelite)
                 {
                     Satelite collSatelite = (Satelite)ColParent;
                     collSatelite.Collided();
                     collSatelite.ApplyThrust(velocity);
+                    EventsHandler.ShakeScreen?.Invoke();
 
                 }
             }

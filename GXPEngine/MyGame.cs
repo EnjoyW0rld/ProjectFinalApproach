@@ -11,6 +11,7 @@ public class MyGame : Game
 	bool isLoading;
 	int nextLevel;
 	Tween screenCover;
+	Tween screenShake;
 	public MyGame() : base(1920, 1080, false,false)		// Create a window that's 800x600 and NOT fullscreen
 	{
 		transition = new EasyDraw(1920, 1080,false);
@@ -27,6 +28,7 @@ public class MyGame : Game
 
         AddChild(scenes[0]);
 		EventsHandler.LevelChange += StartLoading;
+		EventsHandler.ShakeScreen += ApplyScreenShake;
 		//EventsHandler.LevelChange += ChangeTo;
 		AddChild(transition);
 	}
@@ -34,7 +36,8 @@ public class MyGame : Game
 	// For every game object, Update is called every frame, by the engine:
 	void Update()
 	{
-
+		if(Input.GetKeyDown(Key.B)) SoundManager.Instance().PlaySound(0);
+		if(Input.GetKeyDown(Key.N)) SoundManager.Instance().StopAllSounds();
 		//Gizmos.DrawLine(,null,255);
 		// Empty
 		if (isLoading && !transition.HasChild(screenCover))
@@ -43,6 +46,13 @@ public class MyGame : Game
 			isLoading = false;
 		}
 	}
+	void ApplyScreenShake()
+    {
+        if (!HasChild(screenShake))
+        {
+			AddChild(screenShake = new Tween(Tween.Parameter.x, 2, 20, Tween.Function.Sin, 0, true));
+        }
+    }
 	void ChangeTo(int n)
     {
 		foreach (var item in GetChildren())
