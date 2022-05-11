@@ -90,6 +90,7 @@
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
     <Compile Include="MyMapInterpritor.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerInfo.cs" />
     <Compile Include="Portal.cs" />
     <Compile Include="Satelite.cs" />
     <Compile Include="Scene.cs" />

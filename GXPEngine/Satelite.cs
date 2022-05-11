@@ -29,13 +29,7 @@ namespace GXPEngine
             parentPlanet = p;
             _coll = new BallCollider(pos, width / 2);
             AddChild(_coll);
-            /*
-            pos = new Vec2(p.pos.x, p.pos.y - p.GetGravityRadius() + height/2);
-            //parentPlanet = p;
-            Vec2 direction = ((p.pos - pos).Normalized());
-            direction.RotateDegrees(-90);
-            velocity = direction * 3.5f;
-            */    
+            
         }
         
         void Update()

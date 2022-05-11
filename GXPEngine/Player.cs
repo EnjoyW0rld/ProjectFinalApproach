@@ -13,8 +13,10 @@ namespace GXPEngine
         //public Vec2 velocity { get; private set; }
         Vec2 velocity;
         Vec2 acceleration;
-        const float SPEED = 0.5f;
-        const float mass = 1000f; 
+        float SPEED;
+        int mass;
+        float maxSpeed;
+
         Sprite body;
         public readonly BallCollider ballCollider;
 
@@ -23,8 +25,10 @@ namespace GXPEngine
 
         public Player()
         {
-
-            fuelAmount = 100;
+            mass = PlayerInfo.mass;
+            SPEED = PlayerInfo.Acceleraion;
+            maxSpeed = PlayerInfo.MaxSpeed;
+            fuelAmount = PlayerInfo.fuelCount;
             //pos = new Vec2(200,200);
             body = new Sprite("Assets/mockup1.png");
             body.SetOrigin(body.width/2,body.height/2);
@@ -63,9 +67,9 @@ namespace GXPEngine
                 ResolveCollision(colInfo);
             }
 
-            if(velocity.Length() > 5)
+            if(velocity.Length() > maxSpeed)
             {
-                velocity = velocity.Normalized() * 5;
+                velocity = velocity.Normalized() * maxSpeed;
             }
         }
         void UpdatePosition()
