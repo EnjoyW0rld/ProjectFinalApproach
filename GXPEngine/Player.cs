@@ -21,6 +21,7 @@ namespace GXPEngine
 
 
         Sprite body;
+        Sprite shield;
         public readonly BallCollider ballCollider;
 
         public int fuelAmount { get; private set; }
@@ -28,6 +29,9 @@ namespace GXPEngine
 
         public Player()
         {
+            shield = new Sprite("Assets/shield.png");
+            shield.scale = 0.3f;
+            shield.y = -60;
             mass = PlayerInfo.mass;
             SPEED = PlayerInfo.Acceleraion;
             maxSpeed = PlayerInfo.MaxSpeed;
@@ -85,6 +89,11 @@ namespace GXPEngine
             if(health <= 0) EventsHandler.LevelChange?.Invoke(9);
             PlayerInfo.currentFuelCount = fuelAmount;
             PlayerInfo.currentHealth = health; 
+
+            if(damageCooldown < Time.time && HasChild(shield))
+            {
+                RemoveChild(shield);
+            }
         }
         void UpdatePosition()
         {
@@ -198,6 +207,7 @@ namespace GXPEngine
                     {
                         health--;
                         damageCooldown = Time.time + 2000;
+                        AddChild(shield);
                     }
                 }
                 if(ColParent is Satelite)
@@ -211,6 +221,7 @@ namespace GXPEngine
                     {
                         health--;
                         damageCooldown = Time.time + 2000;
+                        AddChild(shield);
                     }
                 }
             }
