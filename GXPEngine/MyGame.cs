@@ -29,8 +29,10 @@ public class MyGame : Game
         }
 		scenes.Add(new DeathScreen(10));
         previousLevel = 0;
+		scenes.Add(new WinScreen());
 		scenes.Add(new MainMenu());
         AddChild(scenes[scenes.Count - 1]);
+
 		EventsHandler.LevelChange += StartLoading;
 		EventsHandler.ShakeScreen += ApplyScreenShake;
 		//EventsHandler.LevelChange += ChangeTo;
@@ -79,6 +81,7 @@ public class MyGame : Game
 			if(!(item is EasyDraw))
 			RemoveChild(item);
 		}
+
 		foreach(Scene scene in scenes)
 		{
 			if(scene.sceneNumber == n + 1)

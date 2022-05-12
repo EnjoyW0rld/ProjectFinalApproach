@@ -101,6 +101,7 @@
     <Compile Include="Thruster.cs" />
     <Compile Include="Tween.cs" />
     <Compile Include="Vec2.cs" />
+    <Compile Include="WinScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

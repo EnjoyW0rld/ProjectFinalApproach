@@ -16,7 +16,7 @@ namespace GXPEngine
         float SPEED;
         int mass;
         float maxSpeed;
-        int health = 3;
+        int health;
         int damageCooldown;
 
 
@@ -32,6 +32,7 @@ namespace GXPEngine
             SPEED = PlayerInfo.Acceleraion;
             maxSpeed = PlayerInfo.MaxSpeed;
             fuelAmount = PlayerInfo.fuelCount;
+            health = PlayerInfo.MaxHealth;
             //pos = new Vec2(200,200);
             body = new Sprite("Assets/newShip.png");
             body.SetOrigin(body.width/2,body.height/2);
