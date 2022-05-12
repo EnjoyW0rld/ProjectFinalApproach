@@ -17,6 +17,8 @@ namespace GXPEngine
         public readonly int sceneNumber;
         //EasyDraw HUD;
         HUD hud;
+        string _mapName;
+
 
         public Scene(string mapName)
         {
@@ -48,6 +50,7 @@ namespace GXPEngine
                         playerStartPos.x += pl.ballCollider.radius + player.ballCollider.radius;
                     }
                 }
+                _mapName = mapName;
             }
             AddChild(player);
             player.SetStartPos(playerStartPos);
@@ -62,6 +65,10 @@ namespace GXPEngine
         }
         void Update()
         {
+        }
+        virtual public Scene RestartScene()
+        {
+            return new Scene(_mapName);
         }
         virtual public Player GetPlayer() => player;
         virtual public Satelite[] GetSatelites() => satelites.ToArray();
