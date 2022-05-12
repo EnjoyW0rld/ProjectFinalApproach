@@ -27,24 +27,40 @@
  </layer>
  <objectgroup id="2" name="planets">
   <object id="1" name="planet_blue_cel.png" type="Planet" x="1542.04" y="78.6194" width="326.022" height="326.022">
+   <properties>
+    <property name="GravityRadius" type="int" value="200"/>
+   </properties>
    <ellipse/>
   </object>
   <object id="3" name="planet_3.png" type="Planet" x="20.7988" y="36.6059" width="256" height="256">
+   <properties>
+    <property name="GravityRadius" type="int" value="200"/>
+   </properties>
    <ellipse/>
   </object>
   <object id="4" name="moon_2.png" type="Planet" x="313.143" y="644.051" width="180.726" height="180.726">
+   <properties>
+    <property name="GravityRadius" type="int" value="200"/>
+   </properties>
    <ellipse/>
   </object>
   <object id="5" name="planet_blue_cel.png" type="Planet" x="742.031" y="125.885" width="121.207" height="121.207">
    <properties>
     <property name="AddSatelite" type="bool" value="true"/>
+    <property name="GravityRadius" type="int" value="50"/>
    </properties>
    <ellipse/>
   </object>
   <object id="6" name="moon.png" type="Planet" x="882.076" y="591.534" width="163.22" height="163.22">
+   <properties>
+    <property name="GravityRadius" type="int" value="200"/>
+   </properties>
    <ellipse/>
   </object>
   <object id="7" name="moon_3.png" type="Planet" x="1104.4" y="255.426" width="213.987" height="213.987">
+   <properties>
+    <property name="GravityRadius" type="int" value="200"/>
+   </properties>
    <ellipse/>
   </object>
   <object id="8" name="metheor.png" type="Planet" x="781.066" y="399.936" width="81.1526" height="81.1526">

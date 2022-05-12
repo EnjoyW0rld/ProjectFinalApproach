@@ -28,8 +28,8 @@
  <objectgroup id="2" name="planets">
   <object id="1" name="moon.png" type="Planet" x="635.062" y="535.714" width="189.479" height="189.479">
    <properties>
-    <property name="GravityRadius" type="int" value="340"/>
-    <property name="mass" type="int" value="15"/>
+    <property name="GravityRadius" type="int" value="200"/>
+    <property name="mass" type="int" value="10"/>
    </properties>
    <ellipse/>
   </object>
@@ -54,7 +54,7 @@
   <object id="7" name="metheor.png" type="Planet" x="697.286" y="49.5777" width="81.1526" height="81.1526">
    <properties>
     <property name="GravityRadius" type="int" value="0"/>
-    <property name="PlanetRole" value="Start"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="rotation" type="int" value="-90"/>
    </properties>
    <ellipse/>
@@ -62,22 +62,22 @@
   <object id="8" name="metheor.png" type="Planet" x="99.4687" y="456.583" width="81.1526" height="81.1526">
    <properties>
     <property name="GravityRadius" type="int" value="0"/>
-    <property name="PlanetRole" value="Start"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="rotation" type="int" value="-90"/>
    </properties>
    <ellipse/>
   </object>
   <object id="12" name="moon_2.png" type="Planet" x="1090.39" y="386.665" width="189.479" height="189.479">
    <properties>
-    <property name="GravityRadius" type="int" value="340"/>
-    <property name="mass" type="int" value="15"/>
+    <property name="GravityRadius" type="int" value="200"/>
+    <property name="mass" type="int" value="10"/>
    </properties>
    <ellipse/>
   </object>
   <object id="14" name="moon_2.png" type="Planet" x="1571.8" y="510.955" width="115.955" height="115.955">
    <properties>
-    <property name="GravityRadius" type="int" value="340"/>
-    <property name="mass" type="int" value="15"/>
+    <property name="GravityRadius" type="int" value="200"/>
+    <property name="mass" type="int" value="10"/>
    </properties>
    <ellipse/>
   </object>
