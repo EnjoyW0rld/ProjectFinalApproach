@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="30" height="17" tilewidth="64" tileheight="64" infinite="0" nextlayerid="3" nextobjectid="19">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="30" height="17" tilewidth="64" tileheight="64" infinite="0" nextlayerid="3" nextobjectid="71">
  <properties>
   <property name="Background" value="spaceback_small_4.png"/>
   <property name="LevelNumber" type="int" value="2"/>
@@ -26,14 +26,14 @@
 </data>
  </layer>
  <objectgroup id="2" name="planets">
-  <object id="1" name="moon.png" type="Planet" x="635.062" y="535.714" width="189.479" height="189.479">
+  <object id="1" name="moon.png" type="Planet" x="580.795" y="560.222" width="189.479" height="189.479">
    <properties>
     <property name="GravityRadius" type="int" value="200"/>
     <property name="mass" type="int" value="10"/>
    </properties>
    <ellipse/>
   </object>
-  <object id="2" name="planet_3.png" type="Planet" x="1573.4" y="738.631" width="310.267" height="310.267">
+  <object id="2" name="planet_3.png" type="Planet" x="516.057" y="1.64444" width="508.081" height="508.081">
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="200"/>
@@ -42,7 +42,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="6" name="planet_2.png" type="Planet" x="97.3229" y="42.343" width="166.93" height="166.93">
+  <object id="6" name="planet_2.png" type="Planet" x="-475.111" y="-269.257" width="851.4" height="851.4">
    <properties>
     <property name="AddSatelite" type="bool" value="true"/>
     <property name="GravityRadius" type="int" value="200"/>
@@ -59,7 +59,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="8" name="metheor.png" type="Planet" x="99.4687" y="456.583" width="81.1526" height="81.1526">
+  <object id="55" name="metheor.png" type="Planet" x="972.124" y="567.744" width="81.1526" height="81.1526">
    <properties>
     <property name="GravityRadius" type="int" value="0"/>
     <property name="PlanetRole" value="Regular"/>
@@ -67,21 +67,117 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="12" name="moon_2.png" type="Planet" x="1090.39" y="386.665" width="189.479" height="189.479">
+  <object id="29" name="metheor.png" type="Planet" x="828.578" y="117.85" width="81.1526" height="81.1526">
+   <properties>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="69" name="metheor.png" type="Planet" x="1570.82" y="-18.6942" width="81.1526" height="81.1526">
+   <properties>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="54" name="metheor.png" type="Planet" x="1103.42" y="636.016" width="81.1526" height="81.1526">
+   <properties>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="62" name="metheor.png" type="Planet" x="1539.31" y="464.461" width="81.1526" height="81.1526">
+   <properties>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="34" name="metheor.png" type="Planet" x="809.322" y="12.8159" width="81.1526" height="81.1526">
+   <properties>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="53" name="metheor.png" type="Planet" x="1084.16" y="530.982" width="81.1526" height="81.1526">
+   <properties>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="61" name="metheor.png" type="Planet" x="1644.34" y="425.949" width="81.1526" height="81.1526">
+   <properties>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="59" name="metheor.png" type="Planet" x="1434.27" y="502.973" width="81.1526" height="81.1526">
+   <properties>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="33" name="metheor.png" type="Planet" x="944.115" y="166.865" width="81.1526" height="81.1526">
+   <properties>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="68" name="metheor.png" type="Planet" x="1686.35" y="30.3215" width="81.1526" height="81.1526">
+   <properties>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="52" name="metheor.png" type="Planet" x="1218.95" y="685.032" width="81.1526" height="81.1526">
+   <properties>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="8" name="metheor.png" type="Planet" x="363.804" y="738.424" width="81.1526" height="81.1526">
+   <properties>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="12" name="moon_2.png" type="Planet" x="1340.72" y="598.483" width="189.479" height="189.479">
    <properties>
     <property name="GravityRadius" type="int" value="200"/>
     <property name="mass" type="int" value="10"/>
    </properties>
    <ellipse/>
   </object>
-  <object id="14" name="moon_2.png" type="Planet" x="1571.8" y="510.955" width="115.955" height="115.955">
+  <object id="67" name="moon_2.png" type="Planet" x="1785.37" y="-21.216" width="115.955" height="115.955">
    <properties>
     <property name="GravityRadius" type="int" value="200"/>
     <property name="mass" type="int" value="10"/>
    </properties>
    <ellipse/>
   </object>
-  <object id="15" name="metheor_3.png" type="Planet" x="587.489" y="228.626" width="85.4242" height="85.4242">
+  <object id="15" name="metheor_3.png" type="Planet" x="673.267" y="319.655" width="85.4242" height="85.4242">
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
@@ -89,7 +185,95 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="18" name="metheor_3.png" type="Planet" x="162.103" y="636.507" width="85.4242" height="85.4242">
+  <object id="51" name="metheor_3.png" type="Planet" x="948.105" y="837.822" width="85.4242" height="85.4242">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="28" name="metheor_3.png" type="Planet" x="604.995" y="450.947" width="85.4242" height="85.4242">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="50" name="metheor_3.png" type="Planet" x="879.833" y="969.114" width="85.4242" height="85.4242">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="32" name="metheor_3.png" type="Planet" x="788.804" y="333.66" width="85.4242" height="85.4242">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="49" name="metheor_3.png" type="Planet" x="1063.64" y="851.826" width="85.4242" height="85.4242">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="36" name="metheor_3.png" type="Planet" x="858.826" y="232.127" width="85.4242" height="85.4242">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="66" name="metheor_3.png" type="Planet" x="1756.86" y="102.586" width="85.4242" height="85.4242">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="48" name="metheor_3.png" type="Planet" x="1133.66" y="750.294" width="85.4242" height="85.4242">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="25" name="metheor_3.png" type="Planet" x="501.711" y="965.613" width="85.4242" height="85.4242">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="21" name="metheor_3.png" type="Planet" x="585.738" y="788.806" width="85.4242" height="85.4242">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="23" name="metheor_3.png" type="Planet" x="424.687" y="830.819" width="85.4242" height="85.4242">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="18" name="metheor_3.png" type="Planet" x="289.894" y="657.514" width="85.4242" height="85.4242">
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
@@ -105,11 +289,227 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="17" name="metheor_4.png" type="Planet" x="450.95" y="314.402" width="55.6646" height="55.6646">
+  <object id="47" name="metheor_2.png" type="Planet" x="1245.7" y="794.057" width="66.168" height="66.168">
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="27" name="metheor_2.png" type="Planet" x="657.514" y="155.102" width="66.168" height="66.168">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="46" name="metheor_2.png" type="Planet" x="932.352" y="673.268" width="66.168" height="66.168">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="31" name="metheor_2.png" type="Planet" x="762.548" y="212.871" width="66.168" height="66.168">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="65" name="metheor_2.png" type="Planet" x="1854.9" y="184.861" width="66.168" height="66.168">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="45" name="metheor_2.png" type="Planet" x="1058.39" y="729.286" width="66.168" height="66.168">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="35" name="metheor_2.png" type="Planet" x="913.096" y="78.0771" width="66.168" height="66.168">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="44" name="metheor_2.png" type="Planet" x="1187.93" y="596.244" width="66.168" height="66.168">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="60" name="metheor_2.png" type="Planet" x="1632.58" y="543.727" width="66.168" height="66.168">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="58" name="metheor_2.png" type="Planet" x="1538.05" y="568.235" width="66.168" height="66.168">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="20" name="metheor_2.png" type="Planet" x="494.712" y="715.282" width="66.168" height="66.168">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="17" name="metheor_4.png" type="Planet" x="631.258" y="267.137" width="55.6646" height="55.6646">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="43" name="metheor_4.png" type="Planet" x="906.096" y="785.303" width="55.6646" height="55.6646">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="26" name="metheor_4.png" type="Planet" x="582.242" y="382.674" width="55.6646" height="55.6646">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="42" name="metheor_4.png" type="Planet" x="857.08" y="900.84" width="55.6646" height="55.6646">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="30" name="metheor_4.png" type="Planet" x="708.283" y="438.692" width="55.6646" height="55.6646">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="41" name="metheor_4.png" type="Planet" x="983.121" y="956.858" width="55.6646" height="55.6646">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="24" name="metheor_4.png" type="Planet" x="365.172" y="1051.39" width="55.6646" height="55.6646">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="19" name="metheor_4.png" type="Planet" x="419.44" y="942.854" width="55.6646" height="55.6646">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="22" name="metheor_4.png" type="Planet" x="288.148" y="916.595" width="55.6646" height="55.6646">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="37" name="metheor_3.png" type="Planet" x="997.122" y="6.30365" width="85.4242" height="85.4242">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="40" name="metheor_3.png" type="Planet" x="1271.96" y="524.47" width="85.4242" height="85.4242">
+   <properties>
+    <property name="AddSatelite" type="bool" value="false"/>
+    <property name="GravityRadius" type="int" value="0"/>
+    <property name="SateliteSpeed" type="float" value="-2"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="38" name="portal.png" type="Portal" x="1713.59" y="493.449" width="189.479" height="189.479">
+   <properties>
+    <property name="GateNumber" type="int" value="2"/>
+    <property name="GravityRadius" type="int" value="200"/>
+    <property name="mass" type="int" value="10"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="39" name="portal1.png" type="Portal" x="635.245" y="885.575" width="189.479" height="189.479">
+   <properties>
+    <property name="GravityRadius" type="int" value="200"/>
+    <property name="mass" type="int" value="10"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="56" name="portal1.png" type="Portal" x="1149.91" y="868.07" width="189.479" height="189.479">
+   <properties>
+    <property name="GateNumber" type="int" value="2"/>
+    <property name="GravityRadius" type="int" value="200"/>
+    <property name="mass" type="int" value="10"/>
+    <property name="rotation" type="int" value="0"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="57" name="portal.png" type="Portal" x="106.575" y="826.056" width="189.479" height="189.479">
+   <properties>
+    <property name="GravityRadius" type="int" value="200"/>
+    <property name="mass" type="int" value="10"/>
+    <property name="rotation" type="int" value="-90"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="63" name="moon.png" type="Planet" x="1447.51" y="237.867" width="189.479" height="189.479">
+   <properties>
+    <property name="GravityRadius" type="int" value="200"/>
+    <property name="mass" type="int" value="10"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object id="64" name="moon_2.png" type="Planet" x="1076.39" y="52.3077" width="189.479" height="189.479">
+   <properties>
+    <property name="GravityRadius" type="int" value="200"/>
+    <property name="mass" type="int" value="10"/>
    </properties>
    <ellipse/>
   </object>
