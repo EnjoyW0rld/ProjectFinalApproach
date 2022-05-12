@@ -457,11 +457,12 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="36" name="portal.png" type="Portal" x="1055.76" y="-5.07506" width="227.22" height="227.22" rotation="180">
+  <object id="36" name="portal.png" type="Portal" x="1055.76" y="-5.07506" width="227.22" height="227.22">
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="200"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
+    <property name="rotation" type="int" value="180"/>
    </properties>
    <ellipse/>
   </object>
