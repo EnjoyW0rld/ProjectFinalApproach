@@ -8,8 +8,8 @@ namespace GXPEngine
 {
     internal class DeathScreen : Scene
     {
-
         AnimationSprite background;
+        int changeToLevel;
         public DeathScreen(int scN) : base(scN)
         {
             background = new AnimationSprite("Assets/DeathScreen/animation.png", 5, 2);
@@ -24,5 +24,10 @@ namespace GXPEngine
             background.Animate(0.14f);
 
         }
+        public int GetNextScene()
+        {
+            return changeToLevel;
+        }
+        public void UpdateNextSceneNumber(int i) => changeToLevel = i;
     }
 }

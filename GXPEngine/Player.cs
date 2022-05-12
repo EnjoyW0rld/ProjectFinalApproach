@@ -88,7 +88,7 @@ namespace GXPEngine
         void HandleControls()
         {
             //Debug options, remove later
-            if(Input.GetKey(Key.R)) pos = new Vec2(100,100);
+            //if(Input.GetKey(Key.R)) pos = new Vec2(100,100);
             if(Input.GetKey(Key.T)) velocity = new Vec2();
 
             acceleration = new Vec2();
