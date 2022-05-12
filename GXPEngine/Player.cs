@@ -208,6 +208,7 @@ namespace GXPEngine
                         health--;
                         damageCooldown = Time.time + 2000;
                         AddChild(shield);
+                        SoundManager.Instance().PlaySound(4);
                     }
                 }
                 if(ColParent is Satelite)
@@ -220,6 +221,7 @@ namespace GXPEngine
                     if (damageCooldown < Time.time)
                     {
                         health--;
+                        SoundManager.Instance().PlaySound(4);
                         damageCooldown = Time.time + 2000;
                         AddChild(shield);
                     }
@@ -242,6 +244,7 @@ namespace GXPEngine
                         Vec2 propDirection = Vec2.GetUnitVectorDeg(othP.facingDirection);
                         pos = othP.pos + propDirection * (othP.ballCollider.radius + ballCollider.radius);
                         velocity = propDirection * velocity.Length();
+                        SoundManager.Instance().PlaySound(1);
                     }
                 }
             }

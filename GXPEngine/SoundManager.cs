@@ -34,8 +34,14 @@ namespace GXPEngine
                             sounds.Add(i, new Sound(soundList[i]));
                         }*/
 
-            sounds.Add(0, new Sound("Assets/wavs/drumandspace.wav"));
-            sounds.Add(1, new Sound("Assets/wavs/ButtonCLick.ogg"));
+            //sounds.Add(1, new Sound("Assets/wavs/ButtonCLick.ogg"));
+            sounds.Add(0, new Sound("Assets/Sound/scenetrans3.wav"));
+            sounds.Add(1, new Sound("Assets/Sound/portal.wav"));
+            sounds.Add(2, new Sound("Assets/Sound/select.wav"));
+            sounds.Add(3, new Sound("Assets/Sound/thrust.ogg"));
+            sounds.Add(4, new Sound("Assets/Sound/crash.mp3"));
+            sounds.Add(5, new Sound("Assets/Sound/gameover.wav"));
+            sounds.Add(6, new Sound("Assets/wavs/drumandspace.wav",true));
 
         }
         public void PlaySound(int i)

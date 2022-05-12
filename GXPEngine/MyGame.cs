@@ -37,7 +37,7 @@ public class MyGame : Game
 		EventsHandler.ShakeScreen += ApplyScreenShake;
 		//EventsHandler.LevelChange += ChangeTo;
 		AddChild(transition);
-		SoundManager.Instance().PlaySound(0);
+		SoundManager.Instance().PlaySound(6);
 	}
 
 	// For every game object, Update is called every frame, by the engine:
@@ -51,9 +51,11 @@ public class MyGame : Game
 		{
 			ChangeTo(nextLevel); 
 			isLoading = false;
+			//SoundManager.Instance().PlaySound(0);
+
 		}
 
-        if (Input.GetKeyDown(Key.R))
+		if (Input.GetKeyDown(Key.R))
         {
             for (int i = 0; i < scenes.Count; i++)
             {

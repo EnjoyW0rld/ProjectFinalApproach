@@ -50,6 +50,7 @@ namespace GXPEngine
                         case 0:
                             SetFrame(row * 3 + 2);
                             EventsHandler.LevelChange?.Invoke(DeathScreen.changeToLevel);
+                            //SoundManager.Instance().PlaySound(2);
                             break;
                         case 1:
                             SetFrame(row * 3 + 2);
@@ -57,9 +58,10 @@ namespace GXPEngine
                         case 2:
                             SetFrame(row * 3 + 2);
                             Environment.Exit(0);
+                            //SoundManager.Instance().PlaySound(2);
                             break;
                     }
-                    SoundManager.Instance().PlaySound(1);
+                    SoundManager.Instance().PlaySound(0);
                 }
             }
         }
