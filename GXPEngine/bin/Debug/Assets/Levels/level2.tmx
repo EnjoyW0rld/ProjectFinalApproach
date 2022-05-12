@@ -42,16 +42,7 @@
    </properties>
    <ellipse/>
   </object>
-  <object id="72" name="planet_3.png" type="Planet" x="447.785" y="357.009" width="508.081" height="508.081">
-   <properties>
-    <property name="AddSatelite" type="bool" value="false"/>
-    <property name="GravityRadius" type="int" value="200"/>
-    <property name="PlanetRole" value="End"/>
-    <property name="mass" type="int" value="20"/>
-   </properties>
-   <ellipse/>
-  </object>
-  <object id="6" name="planet_2.png" type="Planet" x="-475.111" y="-269.257" width="851.4" height="851.4">
+  <object id="6" name="planet_2.png" type="Planet" x="-219.111" y="-69.257" width="523.4" height="523.4">
    <properties>
     <property name="AddSatelite" type="bool" value="true"/>
     <property name="GravityRadius" type="int" value="200"/>

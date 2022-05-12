@@ -43,6 +43,8 @@
   <object id="4" name="moon_2.png" type="Planet" x="1337.22" y="201.159" width="180.726" height="180.726">
    <properties>
     <property name="GravityRadius" type="int" value="200"/>
+    <property name="PlanetRole" value="Regular"/>
+    <property name="mass" type="int" value="5"/>
    </properties>
    <ellipse/>
   </object>
@@ -50,6 +52,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="50"/>
+    <property name="PlanetRole" value="Regular"/>
    </properties>
    <ellipse/>
   </object>
@@ -57,6 +60,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="50"/>
+    <property name="PlanetRole" value="Regular"/>
    </properties>
    <ellipse/>
   </object>
@@ -64,6 +68,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="50"/>
+    <property name="PlanetRole" value="Regular"/>
    </properties>
    <ellipse/>
   </object>
@@ -71,6 +76,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="50"/>
+    <property name="PlanetRole" value="Regular"/>
    </properties>
    <ellipse/>
   </object>
@@ -78,24 +84,28 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="50"/>
+    <property name="PlanetRole" value="Regular"/>
    </properties>
    <ellipse/>
   </object>
   <object id="6" name="moon.png" type="Planet" x="461.941" y="488.251" width="163.22" height="163.22">
    <properties>
     <property name="GravityRadius" type="int" value="200"/>
+    <property name="PlanetRole" value="Regular"/>
    </properties>
    <ellipse/>
   </object>
   <object id="41" name="moon.png" type="Planet" x="15.5476" y="493.503" width="163.22" height="163.22">
    <properties>
     <property name="GravityRadius" type="int" value="200"/>
+    <property name="PlanetRole" value="Regular"/>
    </properties>
    <ellipse/>
   </object>
   <object id="7" name="moon_3.png" type="Planet" x="1004.62" y="304.442" width="213.987" height="213.987">
    <properties>
     <property name="GravityRadius" type="int" value="200"/>
+    <property name="PlanetRole" value="Regular"/>
    </properties>
    <ellipse/>
   </object>
@@ -103,12 +113,14 @@
    <properties>
     <property name="AddSatelite" type="bool" value="true"/>
     <property name="GravityRadius" type="int" value="200"/>
+    <property name="PlanetRole" value="Regular"/>
    </properties>
    <ellipse/>
   </object>
   <object id="33" name="moon_3.png" type="Planet" x="1386.24" y="579.28" width="213.987" height="213.987">
    <properties>
     <property name="GravityRadius" type="int" value="200"/>
+    <property name="PlanetRole" value="Regular"/>
    </properties>
    <ellipse/>
   </object>
@@ -116,13 +128,14 @@
    <properties>
     <property name="AddSatelite" type="bool" value="true"/>
     <property name="GravityRadius" type="int" value="200"/>
+    <property name="PlanetRole" value="Regular"/>
    </properties>
    <ellipse/>
   </object>
   <object id="8" name="metheor.png" type="Planet" x="777.565" y="350.92" width="81.1526" height="81.1526">
    <properties>
     <property name="GravityRadius" type="int" value="0"/>
-    <property name="PlanetRole" value="Start"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="rotation" type="int" value="-90"/>
    </properties>
    <ellipse/>
@@ -130,7 +143,7 @@
   <object id="32" name="metheor.png" type="Planet" x="1211.7" y="729.042" width="81.1526" height="81.1526">
    <properties>
     <property name="GravityRadius" type="int" value="0"/>
-    <property name="PlanetRole" value="Start"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="rotation" type="int" value="-90"/>
    </properties>
    <ellipse/>
@@ -138,7 +151,7 @@
   <object id="14" name="metheor.png" type="Planet" x="880.848" y="300.153" width="81.1526" height="81.1526">
    <properties>
     <property name="GravityRadius" type="int" value="0"/>
-    <property name="PlanetRole" value="Start"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="rotation" type="int" value="-90"/>
    </properties>
    <ellipse/>
@@ -146,7 +159,7 @@
   <object id="31" name="metheor.png" type="Planet" x="1288.73" y="657.268" width="81.1526" height="81.1526">
    <properties>
     <property name="GravityRadius" type="int" value="0"/>
-    <property name="PlanetRole" value="Start"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="rotation" type="int" value="-90"/>
    </properties>
    <ellipse/>
@@ -154,7 +167,7 @@
   <object id="20" name="metheor.png" type="Planet" x="1244.96" y="366.675" width="81.1526" height="81.1526">
    <properties>
     <property name="GravityRadius" type="int" value="0"/>
-    <property name="PlanetRole" value="Start"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="rotation" type="int" value="-90"/>
    </properties>
    <ellipse/>
@@ -162,7 +175,7 @@
   <object id="35" name="metheor.png" type="Planet" x="1890.92" y="476.96" width="81.1526" height="81.1526">
    <properties>
     <property name="GravityRadius" type="int" value="0"/>
-    <property name="PlanetRole" value="Start"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="rotation" type="int" value="-90"/>
    </properties>
    <ellipse/>
@@ -171,6 +184,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -179,6 +193,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -187,6 +202,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -195,6 +211,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -203,6 +220,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -211,6 +229,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -219,6 +238,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -227,6 +247,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -235,6 +256,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -243,6 +265,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -251,6 +274,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -259,6 +283,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -267,6 +292,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -275,6 +301,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -283,6 +310,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -291,6 +319,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -299,6 +328,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -307,6 +337,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -315,6 +346,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -323,6 +355,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>
@@ -331,6 +364,7 @@
    <properties>
     <property name="AddSatelite" type="bool" value="false"/>
     <property name="GravityRadius" type="int" value="0"/>
+    <property name="PlanetRole" value="Regular"/>
     <property name="SateliteSpeed" type="float" value="-2"/>
    </properties>
    <ellipse/>

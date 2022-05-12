@@ -1,5 +1,5 @@
-fuel:67
+fuel:57
 MaxSpeed:5
 AcceleraionSpeed:0.5
 Mass:1000
-PlayerHealth:10
+PlayerHealth:6
