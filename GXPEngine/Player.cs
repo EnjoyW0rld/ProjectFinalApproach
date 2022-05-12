@@ -30,7 +30,7 @@ namespace GXPEngine
             maxSpeed = PlayerInfo.MaxSpeed;
             fuelAmount = PlayerInfo.fuelCount;
             //pos = new Vec2(200,200);
-            body = new Sprite("Assets/sharky.png");
+            body = new Sprite("Assets/newShip.png");
             body.SetOrigin(body.width/2,body.height/2);
             body.scale = 0.2f;
             AddChild(body);

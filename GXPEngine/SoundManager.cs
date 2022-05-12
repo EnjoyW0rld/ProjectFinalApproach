@@ -28,11 +28,15 @@ namespace GXPEngine
         }
         void LoadSounds()
         {
-            string[] soundList = Directory.GetFiles("Assets/Sound/");
-            for (int i = 0; i < soundList.Length; i++)
-            {
-                sounds.Add(i, new Sound(soundList[i]));
-            }
+            /*            string[] soundList = Directory.GetFiles("Assets/Sound/");
+                        for (int i = 0; i < soundList.Length; i++)
+                        {
+                            sounds.Add(i, new Sound(soundList[i]));
+                        }*/
+
+            sounds.Add(0, new Sound("Assets/wavs/drumandspace.wav",true));
+            sounds.Add(1, new Sound("Assets/wavs/ButtonCLick.ogg"));
+
         }
         public void PlaySound(int i)
         {

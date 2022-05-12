@@ -59,6 +59,7 @@ namespace GXPEngine
                             Environment.Exit(0);
                             break;
                     }
+                    SoundManager.Instance().PlaySound(1);
                 }
             }
         }

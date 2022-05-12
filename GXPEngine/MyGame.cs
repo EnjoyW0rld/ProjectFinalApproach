@@ -17,9 +17,9 @@ public class MyGame : Game
 
     public MyGame() : base(1920, 1080, false,false)		// Create a window that's 800x600 and NOT fullscreen
 	{
-		transition = new EasyDraw(1920, 1080,false);
+		transition = new EasyDraw(2000, 1080,false);
 		transition.Clear(0);
-		transition.x = -1920;
+		transition.x = -2000;
 
 		//AddChild();
 		targetFps = 60;
@@ -35,12 +35,13 @@ public class MyGame : Game
 		EventsHandler.ShakeScreen += ApplyScreenShake;
 		//EventsHandler.LevelChange += ChangeTo;
 		AddChild(transition);
+		SoundManager.Instance().PlaySound(0);
 	}
 
 	// For every game object, Update is called every frame, by the engine:
 	void Update()
 	{
-		if(Input.GetKeyDown(Key.B)) SoundManager.Instance().PlaySound(0);
+		//if(Input.GetKeyDown(Key.B)) SoundManager.Instance().PlaySound(0);
 		if(Input.GetKeyDown(Key.N)) SoundManager.Instance().StopAllSounds();
 		//Gizmos.DrawLine(,null,255);
 		// Empty
