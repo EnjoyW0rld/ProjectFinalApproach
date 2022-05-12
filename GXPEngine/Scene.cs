@@ -18,7 +18,7 @@ namespace GXPEngine
         //EasyDraw HUD;
         HUD hud;
         string _mapName;
-
+        public bool isFinished;
 
         public Scene(string mapName)
         {
@@ -56,7 +56,7 @@ namespace GXPEngine
             player.SetStartPos(playerStartPos);
             AddChild(hud);
             sceneNumber = MyMapInterpritor.GetLevelNumber(mapName);
-
+            EventsHandler.LevelChange += CheckIfFinished;
 
         }
         public Scene(int scN)
@@ -65,6 +65,10 @@ namespace GXPEngine
         }
         void Update()
         {
+        }
+        void CheckIfFinished(int i)
+        {
+            if(i == sceneNumber) isFinished = true;
         }
         virtual public Scene RestartScene()
         {
