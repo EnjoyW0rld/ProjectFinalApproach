@@ -36,7 +36,9 @@ namespace GXPEngine
         }
         public void PlaySound(int i)
         {
+            
             Sound sound;
+            
             sounds.TryGetValue(i, out sound);
             //sound.Play(false, 0);
             sc = sound.Play();

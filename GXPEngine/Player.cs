@@ -182,9 +182,12 @@ namespace GXPEngine
                     {
                         Scene sc = parent as Scene;
                         EventsHandler.LevelChange?.Invoke(sc.sceneNumber);
+                        EventsHandler.ChangeEmotion?.Invoke(0);
+
                         return;
                     }
                     EventsHandler.ShakeScreen?.Invoke();
+                    EventsHandler.ChangeEmotion?.Invoke(2);
                 }
                 if(ColParent is Satelite)
                 {
@@ -192,6 +195,7 @@ namespace GXPEngine
                     collSatelite.Collided();
                     collSatelite.ApplyThrust(velocity);
                     EventsHandler.ShakeScreen?.Invoke();
+                    EventsHandler.ChangeEmotion?.Invoke(2);
 
                 }
             }

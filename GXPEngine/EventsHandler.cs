@@ -13,5 +13,7 @@ namespace GXPEngine
         public static Action OpenTransition;
         public static Action<BallCollider> EnteredEndPlanet;
         public static Action ShakeScreen;
+
+        public static Action<int> ChangeEmotion;
     }
 }

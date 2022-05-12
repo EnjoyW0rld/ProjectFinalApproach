@@ -13,9 +13,15 @@ namespace GXPEngine
         bool isTransiting;
         int nextScene;
         int fuelWidth;
+        int currentEmotion;
+        int changeFaceTimer;
 
         Sprite health;
         Sprite fuel;
+        AnimationSprite face;
+        AnimationSprite skills;
+
+
         public HUD(Player pl) : base(1920,1080,false)
         {
             Sprite frame = new Sprite("Assets/UIThingy.png");
@@ -23,6 +29,17 @@ namespace GXPEngine
             health.x = 192;
             health.y = 120;
             AddChild(health);
+
+            face = new AnimationSprite("Assets/UIexpressions.png",3,1);
+            face.SetFrame(1);
+            face.x = 52;
+            face.y = 62;
+            AddChild(face);
+
+            skills = new AnimationSprite("Assets/SKills.png", 3, 2);
+            skills.x = 90;
+            skills.y = 194;
+            AddChild(skills);
 
             fuel = new Sprite("Assets/fuel.png");
             fuel.x = 192;
@@ -38,14 +55,28 @@ namespace GXPEngine
             transition.Clear(0);
             transition.x = -1920;
             AddChild(transition);
+
+            EventsHandler.ChangeEmotion += SetEmotion;
         }
         void Update()
         {
-            if (Input.GetMouseButtonDown(0)) Console.WriteLine(Input.mouseX + "   " + Input.mouseY);
+            //if (Input.GetMouseButtonDown(0)) Console.WriteLine(Input.mouseX + "   " + Input.mouseY);
             ClearTransparent();
-            Text("Fuel left: " + player.fuelAmount, 10, 200);
+            //Text("Fuel left: " + player.fuelAmount, 10, 200);
             fuel.width = (fuelWidth * PlayerInfo.currentFuelCount) / PlayerInfo.fuelCount;
 
+            if(changeFaceTimer < Time.time)
+            {
+                face.SetFrame(1);
+            }
+
+        }
+
+        void SetEmotion(int i)
+        {
+            currentEmotion = i;
+            face.SetFrame(i);
+            changeFaceTimer = Time.time + 2000;
         }
 
     }

@@ -96,5 +96,6 @@ namespace GXPEngine
             return colliders;
         }
         virtual public SpaceBody[] GetSpaceBodies() => spaceBodies.ToArray();
+        virtual public void UpdateNextSceneNumber(int i) { }
     }
 }

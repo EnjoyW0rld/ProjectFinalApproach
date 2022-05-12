@@ -10,7 +10,7 @@ public class MyGame : Game
 	EasyDraw transition;
 	bool isLoading;
 	int nextLevel;
-	int previousLevel;
+	public int previousLevel { get; private set; }
 
 	Tween screenCover;
     Tween screenShake;
@@ -28,8 +28,9 @@ public class MyGame : Game
 			scenes.Add(new Scene(item));
         }
 		scenes.Add(new DeathScreen(10));
-		previousLevel = 0;
-        AddChild(scenes[0]);
+        previousLevel = 0;
+		scenes.Add(new MainMenu());
+        AddChild(scenes[scenes.Count - 1]);
 		EventsHandler.LevelChange += StartLoading;
 		EventsHandler.ShakeScreen += ApplyScreenShake;
 		//EventsHandler.LevelChange += ChangeTo;
@@ -62,6 +63,7 @@ public class MyGame : Game
 					EventsHandler.LevelChange?.Invoke(previousLevel);
         }
 	}
+
 	void ApplyScreenShake()
     {
         if (!HasChild(screenShake))
@@ -83,9 +85,9 @@ public class MyGame : Game
 				AddChildAt(scene, 0);
 
             } 
-			if(scene.sceneNumber == 10)
+			if(scene.sceneNumber == 9 || scene.sceneNumber == 10 || scene.sceneNumber == 11)
             {
-				((DeathScreen)scene).UpdateNextSceneNumber(n);
+				scene.UpdateNextSceneNumber(n);
             }
 		}
 
@@ -94,8 +96,12 @@ public class MyGame : Game
 
 	void StartLoading(int i)
     {
-		if(nextLevel != 9)
+		if (isLoading == true) return;
+		if(nextLevel != 9 && nextLevel != 10)
+        {
 		previousLevel = nextLevel;
+        }else { scenes[previousLevel] = scenes[previousLevel].RestartScene(); }
+
 		nextLevel = i;
 		if(!transition.HasChild(screenCover))
 		transition.AddChild(screenCover = new Tween(Tween.Parameter.x, 1, 0, Tween.Function.easeInQuad));
@@ -107,8 +113,5 @@ public class MyGame : Game
 		PlayerInfo.LoadPlayerInfo();
 		new MyGame().Start();					// Create a "MyGame" and start it
 	}
-    /*public Player GetPlayer()
-    {
-        return player;
-    }*/
+    
 }

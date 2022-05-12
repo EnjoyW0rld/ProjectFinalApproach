@@ -9,7 +9,7 @@ namespace GXPEngine
     internal class DeathScreen : Scene
     {
         AnimationSprite background;
-        int changeToLevel;
+        public static int changeToLevel;
         public DeathScreen(int scN) : base(scN)
         {
             background = new AnimationSprite("Assets/DeathScreen/animation.png", 5, 2);
@@ -22,12 +22,18 @@ namespace GXPEngine
         void Update()
         {
             background.Animate(0.14f);
-
+            if (Input.GetKeyDown(Key.ESCAPE)) EventsHandler.LevelChange?.Invoke(10);
         }
         public int GetNextScene()
         {
             return changeToLevel;
         }
-        public void UpdateNextSceneNumber(int i) => changeToLevel = i;
+        override public void UpdateNextSceneNumber(int i)
+        {
+            if(i != 9 && i != 10 && i != 11)
+            changeToLevel = i;
+
+        }
+
     }
 }
