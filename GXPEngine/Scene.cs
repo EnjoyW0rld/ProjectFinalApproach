@@ -57,7 +57,13 @@ namespace GXPEngine
             AddChild(hud);
             sceneNumber = MyMapInterpritor.GetLevelNumber(mapName);
             EventsHandler.LevelChange += CheckIfFinished;
-
+            if(sceneNumber == 1)
+            {
+                Sprite ss = new Sprite("Assets/Tutorial.png");
+                ss.x  = game.width - ss.width - 40;
+                ss.y  = game.height - ss.height - 40;
+                AddChild(ss);
+            }
         }
         public Scene(int scN)
         {

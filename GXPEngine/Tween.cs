@@ -43,8 +43,8 @@ namespace GXPEngine
             ApplyData();
             if(easeTime <= (Time.time - startTime))
             {
-                //currentValue = value;
-                //ApplyData();
+                currentValue = value;
+                ApplyData();
                 if(isReturning) currentValue = startValue;
                 ApplyData();
                 parent.RemoveChild(this);
@@ -55,20 +55,24 @@ namespace GXPEngine
 
         void ApplyData()
         {
-            switch (parameter)
-            {
-                case Parameter.x:
-                    if(parent is Player)
-                    ((Player)parent).ChangePos(currentValue);
-                    else parent.x = currentValue;
-                    break;
-                case Parameter.y: 
-                    if(parent is Player)
-                        ((Player)parent).ChangePos(-1, currentValue);
-                    else parent.y = currentValue;
-                    break;
-                case Parameter.a: ((Sprite)parent).alpha = currentValue; break;
-            }
+
+            if (parent == null) return;
+                switch (parameter)
+                {
+                    case Parameter.x:
+                        if(parent is Player)
+                        ((Player)parent).ChangePos(currentValue);
+                        else parent.x = currentValue;
+                        break;
+                    case Parameter.y: 
+                        if(parent is Player)
+                            ((Player)parent).ChangePos(-1, currentValue);
+                        else parent.y = currentValue;
+                        break;
+                    case Parameter.a: ((Sprite)parent).alpha = currentValue; break;
+                }
+            
+            
         }
         float GetCurrentValue()
         {

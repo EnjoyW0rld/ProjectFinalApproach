@@ -13,6 +13,7 @@ namespace GXPEngine
         bool isTransiting;
         int nextScene;
         int fuelWidth;
+        int healthWidth;
         int currentEmotion;
         int changeFaceTimer;
 
@@ -28,6 +29,7 @@ namespace GXPEngine
             health = new Sprite("Assets/health.png");
             health.x = 192;
             health.y = 120;
+            healthWidth = health.width;
             AddChild(health);
 
             face = new AnimationSprite("Assets/UIexpressions.png",3,1);
@@ -64,7 +66,7 @@ namespace GXPEngine
             ClearTransparent();
             //Text("Fuel left: " + player.fuelAmount, 10, 200);
             fuel.width = (fuelWidth * PlayerInfo.currentFuelCount) / PlayerInfo.fuelCount;
-
+            health.width = (healthWidth * PlayerInfo.currentHealth) / PlayerInfo.MaxHealth;
             if(changeFaceTimer < Time.time)
             {
                 face.SetFrame(1);

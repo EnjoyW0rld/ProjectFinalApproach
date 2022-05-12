@@ -17,9 +17,9 @@ public class MyGame : Game
 
     public MyGame() : base(1920, 1080, false,false)		// Create a window that's 800x600 and NOT fullscreen
 	{
-		transition = new EasyDraw(2000, 1080,false);
+		transition = new EasyDraw(5000, 1080,false);
 		transition.Clear(0);
-		transition.x = -2000;
+		transition.x = -5000;
 
 		//AddChild();
 		targetFps = 60;
@@ -92,7 +92,7 @@ public class MyGame : Game
             }
 		}
 
-		transition.AddChild(new Tween(Tween.Parameter.x, 1, -1920, Tween.Function.easeInQuad));
+		transition.AddChild(new Tween(Tween.Parameter.x, 0.5f, -5000, Tween.Function.easeInQuad));
     }
 
 	void StartLoading(int i)
@@ -105,7 +105,7 @@ public class MyGame : Game
 
 		nextLevel = i;
 		if(!transition.HasChild(screenCover))
-		transition.AddChild(screenCover = new Tween(Tween.Parameter.x, 1, 0, Tween.Function.easeInQuad));
+		transition.AddChild(screenCover = new Tween(Tween.Parameter.x, 0.5f, 0, Tween.Function.easeInQuad));
 		isLoading = true;
     }	
 

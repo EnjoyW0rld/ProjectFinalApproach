@@ -15,7 +15,9 @@ namespace GXPEngine
         public static float Acceleraion;
         public static int mass;
 
+        public static int MaxHealth = 3;
         public static int currentFuelCount;
+        public static int currentHealth;
 
         public static void LoadPlayerInfo()
         {

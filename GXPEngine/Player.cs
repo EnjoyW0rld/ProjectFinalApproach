@@ -16,6 +16,9 @@ namespace GXPEngine
         float SPEED;
         int mass;
         float maxSpeed;
+        int health = 3;
+        int damageCooldown;
+
 
         Sprite body;
         public readonly BallCollider ballCollider;
@@ -39,7 +42,7 @@ namespace GXPEngine
             ballCollider = new BallCollider(pos, body.width / 2 - 25);
             AddChild(ballCollider);
             //EventsHandler.EnteredEndPlanet += EaseToPlanet;
-        }
+        } 
         public void SetStartPos(Vec2 posit)
         {
             pos = posit;
@@ -78,6 +81,9 @@ namespace GXPEngine
             {
                 EventsHandler.LevelChange?.Invoke(9);                
             }
+            if(health <= 0) EventsHandler.LevelChange?.Invoke(9);
+            PlayerInfo.currentFuelCount = fuelAmount;
+            PlayerInfo.currentHealth = health; 
         }
         void UpdatePosition()
         {
@@ -100,7 +106,6 @@ namespace GXPEngine
             if (acceleration.Length() > 0)
             {
                 fuelAmount--;
-                PlayerInfo.currentFuelCount = fuelAmount;
             }
 
             velocity += acceleration.Normalized() * SPEED;
@@ -188,6 +193,11 @@ namespace GXPEngine
                     }
                     EventsHandler.ShakeScreen?.Invoke();
                     EventsHandler.ChangeEmotion?.Invoke(2);
+                    if(damageCooldown < Time.time)
+                    {
+                        health--;
+                        damageCooldown = Time.time + 2000;
+                    }
                 }
                 if(ColParent is Satelite)
                 {
@@ -196,7 +206,11 @@ namespace GXPEngine
                     collSatelite.ApplyThrust(velocity);
                     EventsHandler.ShakeScreen?.Invoke();
                     EventsHandler.ChangeEmotion?.Invoke(2);
-
+                    if (damageCooldown < Time.time)
+                    {
+                        health--;
+                        damageCooldown = Time.time + 2000;
+                    }
                 }
             }
             //pos = oldPos + velocity * colInfo.TOI;

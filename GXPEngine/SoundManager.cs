@@ -34,7 +34,7 @@ namespace GXPEngine
                             sounds.Add(i, new Sound(soundList[i]));
                         }*/
 
-            sounds.Add(0, new Sound("Assets/wavs/drumandspace.wav",true));
+            sounds.Add(0, new Sound("Assets/wavs/drumandspace.wav"));
             sounds.Add(1, new Sound("Assets/wavs/ButtonCLick.ogg"));
 
         }
