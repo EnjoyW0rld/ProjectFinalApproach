@@ -78,7 +78,7 @@ namespace GXPEngine
                 velocity = velocity.Normalized() * maxSpeed;
             }
 
-            if(((pos.x > 1920 || pos.x < 0) || (pos.y > 1080 || pos.y < 0)) && !((Scene)parent).isFinished)
+            if(((pos.x > 1960 || pos.x < -40) || (pos.y > 1120 || pos.y < -40)) && !((Scene)parent).isFinished)
             {
                 EventsHandler.LevelChange?.Invoke(9);                
             }

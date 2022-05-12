@@ -32,7 +32,7 @@ public class MyGame : Game
 		scenes.Add(new WinScreen());
 		scenes.Add(new MainMenu());
         AddChild(scenes[scenes.Count - 1]);
-
+        
 		EventsHandler.LevelChange += StartLoading;
 		EventsHandler.ShakeScreen += ApplyScreenShake;
 		//EventsHandler.LevelChange += ChangeTo;
@@ -57,14 +57,13 @@ public class MyGame : Game
         {
             for (int i = 0; i < scenes.Count; i++)
             {
-				if(nextLevel == 9 && scenes[i].sceneNumber == 10)
-                {
-                }
+
                 
             }
 					scenes[previousLevel] = scenes[previousLevel].RestartScene();
 					EventsHandler.LevelChange?.Invoke(previousLevel);
         }
+        Console.WriteLine(nextLevel);
 	}
 
 	void ApplyScreenShake()
@@ -104,6 +103,7 @@ public class MyGame : Game
 		if(nextLevel != 9 && nextLevel != 10)
         {
 		previousLevel = nextLevel;
+
         }else { scenes[previousLevel] = scenes[previousLevel].RestartScene(); }
 
 		nextLevel = i;
